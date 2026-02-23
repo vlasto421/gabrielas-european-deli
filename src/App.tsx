@@ -3,8 +3,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   Phone, MapPin, Clock, Facebook, Instagram,
-  ChevronDown, Star, Download, Menu, X,
-  ChevronRight, Mail, ChevronLeft, Quote
+  ChevronDown, Star, Menu, X, Eye,
+  ChevronRight, Mail, ChevronLeft, Users
 } from 'lucide-react';
 import { ConnoisseurStackInteractor } from '@/components/ui/connoisseur-stack-interactor';
 import './App.css';
@@ -95,7 +95,7 @@ const translations = {
     catering: {
       title: 'Catering Menu',
       subtitle: 'Trays, platters & hot dishes for gatherings—ready to pick up.',
-      cta: 'Download PDF Menu',
+      cta: 'View Our Menu',
       orders: {
         title: 'Catering Orders',
         phone: '732-279-3999',
@@ -218,7 +218,7 @@ const translations = {
     catering: {
       title: 'Catering Menu',
       subtitle: 'Podnosy, taniere a horúce jedlá pre stretnutia—pripravené na vyzdvihnutie.',
-      cta: 'Stiahnuť PDF Menu',
+      cta: 'Zobraziť Menu',
       orders: {
         title: 'Catering Objednávky',
         phone: '732-279-3999',
@@ -341,7 +341,7 @@ const translations = {
     catering: {
       title: 'Menu Cateringowe',
       subtitle: 'Patery, półmiski i dania gorące na spotkania—gotowe do odbioru.',
-      cta: 'Pobierz PDF Menu',
+      cta: 'Zobacz Menu',
       orders: {
         title: 'Zamówienia Cateringowe',
         phone: '732-279-3999',
@@ -464,7 +464,7 @@ const translations = {
     catering: {
       title: 'Catering Menü',
       subtitle: 'Tálak, tányérok és meleg ételek összejövetelekre—átvételre készen.',
-      cta: 'PDF Menü Letöltése',
+      cta: 'Menü Megtekintése',
       orders: {
         title: 'Catering Rendelések',
         phone: '732-279-3999',
@@ -587,7 +587,7 @@ const translations = {
     catering: {
       title: 'Catering-Menü',
       subtitle: 'Tabletts, Platten & warme Gerichte für Zusammenkünfte—bereit zur Abholung.',
-      cta: 'PDF-Menü Herunterladen',
+      cta: 'Menü Ansehen',
       orders: {
         title: 'Catering-Bestellungen',
         phone: '732-279-3999',
@@ -1171,37 +1171,38 @@ function App() {
         </div>
       </section>
 
-      {/* Section 2: About Us with Image Slider */}
-      <section ref={aboutRef} className="relative z-20 bg-navy py-20 sm:py-32">
-        <div className="absolute inset-0 wood-texture opacity-10 mix-blend-multiply" />
+      {/* Section 2: About Us — warm cream/gold background to break up blue */}
+      <section ref={aboutRef} className="relative z-20 bg-cream py-20 sm:py-32">
         <div className="absolute inset-0 paper-grain" />
-        
+        {/* Decorative gold accent at top */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Content */}
             <div className="about-content order-2 lg:order-1">
-              <span className="eyebrow mb-4 block">{t.hero.location}</span>
-              <h2 className="font-playfair text-cream text-[clamp(32px,5vw,56px)] font-bold mb-4">
+              <span className="text-gold text-sm font-inter font-semibold tracking-widest uppercase mb-4 block">{t.hero.location}</span>
+              <h2 className="font-playfair text-navy text-[clamp(32px,5vw,56px)] font-bold mb-4">
                 {t.about.title}
               </h2>
-              <p className="text-gold text-xl sm:text-2xl font-playfair italic mb-6">
+              <p className="text-navy/60 text-xl sm:text-2xl font-playfair italic mb-6">
                 {t.about.subtitle}
               </p>
-              <p className="text-cream/80 text-base sm:text-lg leading-relaxed mb-4">
+              <p className="text-navy/80 text-base sm:text-lg leading-relaxed mb-4">
                 {t.about.description}
               </p>
-              <p className="text-cream/70 text-base leading-relaxed mb-8">
+              <p className="text-navy/60 text-base leading-relaxed mb-8">
                 {t.about.description2}
               </p>
-              <div className="flex items-center gap-3 text-gold">
+              <div className="flex items-center gap-3 text-gold-dark">
                 <MapPin size={20} />
                 <span className="font-medium">{t.about.location}</span>
               </div>
             </div>
-            
+
             {/* Image Slider */}
             <div className="about-slider order-1 lg:order-2">
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-2xl">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-2xl border border-gold/20">
                 {storefrontImages.map((img, i) => (
                   <div
                     key={i}
@@ -1216,7 +1217,7 @@ function App() {
                     </div>
                   </div>
                 ))}
-                
+
                 {/* Slider Controls */}
                 <button
                   onClick={prevSlide}
@@ -1232,7 +1233,7 @@ function App() {
                 >
                   <ChevronRight size={20} />
                 </button>
-                
+
                 {/* Dots */}
                 <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
                   {storefrontImages.map((_, i) => (
@@ -1251,10 +1252,11 @@ function App() {
         </div>
       </section>
 
-      {/* Featured Products Showcase */}
-      <section className="relative z-25 bg-navy overflow-hidden">
-        <div className="absolute inset-0 wood-texture opacity-10 mix-blend-multiply" />
+      {/* Featured Products Showcase — dark navy-dark for contrast */}
+      <section className="relative z-25 bg-navy-dark overflow-hidden">
+        <div className="absolute inset-0 wood-texture opacity-8 mix-blend-multiply" />
         <div className="absolute inset-0 paper-grain" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center pt-16 sm:pt-24 px-4">
@@ -1347,28 +1349,46 @@ function App() {
         </div>
       </section>
 
-      {/* Section 5: Catering Header */}
-      <section ref={cateringHeaderRef} className={`${isMobile ? 'py-20 sm:py-28' : 'section-pinned'} bg-navy relative z-50`}>
-        <div className="absolute inset-0 wood-texture opacity-20 mix-blend-multiply" />
-        <div className="absolute inset-0 paper-grain" />
+      {/* Section 5: Catering Header — with background image */}
+      <section ref={cateringHeaderRef} className={`${isMobile ? 'py-20 sm:py-28' : 'section-pinned'} relative z-50`}>
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img src="/catering-menu.jpg" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-navy/85" />
+        </div>
+        <div className="absolute inset-0 wood-texture opacity-10 mix-blend-multiply" />
 
         <div className={`catering-header-content relative ${isMobile ? '' : 'h-full'} flex flex-col justify-center items-center px-4`}>
           <div className="text-center max-w-3xl mx-auto">
+            <span className="text-gold text-sm font-inter font-semibold tracking-widest uppercase mb-6 block">
+              <Users size={16} className="inline mr-2 -mt-0.5" />
+              Parties & Events
+            </span>
             <h2 className="font-playfair text-cream text-[clamp(36px,6vw,72px)] font-bold mb-6">
               {t.catering.title}
             </h2>
-            <p className="text-cream/70 text-lg sm:text-xl mb-8">
+            <p className="text-cream/70 text-lg sm:text-xl mb-10 max-w-xl mx-auto">
               {t.catering.subtitle}
             </p>
-            <a
-              href="/catering-menu.jpg"
-              download
-              className="btn-gold inline-flex items-center gap-2"
-              aria-label="Download catering menu as PDF"
-            >
-              <Download size={18} />
-              {t.catering.cta}
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="/catering-menu.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold inline-flex items-center gap-2"
+                aria-label="View catering menu"
+              >
+                <Eye size={18} />
+                {t.catering.cta}
+              </a>
+              <a
+                href="tel:732-279-3999"
+                className="btn-gold-solid inline-flex items-center gap-2"
+              >
+                <Phone size={18} />
+                {t.catering.orders.cta}
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1443,66 +1463,101 @@ function App() {
         </div>
       </section>
 
-      {/* Section 8: Reviews */}
-      <section ref={reviewsRef} className="relative z-[80] bg-navy py-20 sm:py-32">
-        <div className="absolute inset-0 wood-texture opacity-10 mix-blend-multiply" />
+      {/* Section 8: Reviews — cream background for contrast */}
+      <section ref={reviewsRef} className="relative z-[80] bg-cream py-20 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 paper-grain" />
-        
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
+        <div className="absolute -top-20 -right-20 w-72 h-72 bg-gold/5 rounded-full blur-[100px]" />
+        <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-gold/5 rounded-full blur-[100px]" />
+
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-playfair text-cream text-[clamp(32px,5vw,56px)] font-bold mb-4">
+            <span className="text-gold-dark text-sm font-inter font-semibold tracking-widest uppercase mb-4 block">Testimonials</span>
+            <h2 className="font-playfair text-navy text-[clamp(32px,5vw,56px)] font-bold mb-4">
               {t.reviews.title}
             </h2>
-            <p className="text-cream/60 text-lg">
+            <p className="text-navy/50 text-lg max-w-lg mx-auto">
               {t.reviews.subtitle}
             </p>
+            <div className="w-24 h-1 bg-gold mx-auto mt-6" />
           </div>
-          
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {t.reviews.items.map((review, i) => (
-              <div key={i} className="review-card bg-navy-light/50 backdrop-blur-sm border border-gold/20 rounded-xl p-6 hover:border-gold/40 transition-colors">
-                <Quote className="text-gold/40 mb-4" size={32} />
-                <p className="text-cream/80 text-sm leading-relaxed mb-6">
-                  "{review.text}"
-                </p>
-                <div className="flex items-center gap-1 mb-3">
+              <div key={i} className="review-card group bg-white rounded-2xl p-6 shadow-lg border border-gold/10 hover:shadow-xl hover:border-gold/30 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                {/* Gold accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold/0 via-gold to-gold/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                {/* Large decorative quote */}
+                <div className="absolute -top-2 -right-2 text-gold/8 font-playfair text-[120px] leading-none select-none pointer-events-none">"</div>
+
+                <div className="flex items-center gap-1 mb-4">
                   {Array.from({ length: review.rating }).map((_, j) => (
-                    <Star key={j} className="text-gold fill-gold" size={14} />
+                    <Star key={j} className="text-gold fill-gold" size={16} />
                   ))}
                 </div>
-                <p className="text-gold font-medium">{review.name}</p>
+                <p className="text-navy/70 text-sm leading-relaxed mb-6 relative z-10">
+                  "{review.text}"
+                </p>
+                <div className="flex items-center gap-3 pt-4 border-t border-gold/10">
+                  {/* Avatar circle */}
+                  <div className="w-10 h-10 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
+                    <span className="text-gold-dark font-bold text-sm">{review.name.charAt(0)}</span>
+                  </div>
+                  <div>
+                    <p className="text-navy font-semibold text-sm">{review.name}</p>
+                    <p className="text-navy/40 text-xs">Verified Customer</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section 9: Closing Scene */}
-      <section ref={closingRef} className={`${isMobile ? 'py-20 sm:py-28' : 'section-pinned'} bg-navy relative z-[90]`}>
-        <div className="absolute inset-0 wood-texture opacity-20 mix-blend-multiply" />
-        <div className="absolute inset-0 paper-grain" />
+      {/* Section 9: Closing Scene — enhanced CTA */}
+      <section ref={closingRef} className={`${isMobile ? 'py-20 sm:py-28' : 'section-pinned'} relative z-[90]`}>
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img src="/storefront-1.jpg" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-navy/90" />
+        </div>
+        <div className="absolute inset-0 wood-texture opacity-10 mix-blend-multiply" />
 
         <div className={`closing-content relative ${isMobile ? '' : 'h-full'} flex flex-col justify-center items-center px-4`}>
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="font-playfair text-cream text-[clamp(28px,4vw,48px)] font-bold mb-4">
-              {t.catering.orders.title}
-            </h2>
-            <a 
-              href="tel:732-279-3999"
-              className="font-playfair text-gold text-[clamp(28px,6vw,64px)] font-bold block mb-6 hover:text-gold-light transition-colors"
-            >
-              {t.catering.orders.phone}
-            </a>
-            <a 
-              href="tel:732-279-3999"
-              className="btn-gold-solid inline-flex items-center gap-2 mb-6"
-            >
-              <Phone size={20} />
-              {t.catering.orders.cta}
-            </a>
-            <p className="text-cream/60 text-base sm:text-lg">
-              {t.catering.orders.address}
-            </p>
+            {/* Decorative frame */}
+            <div className="border-2 border-gold/20 rounded-2xl p-8 sm:p-12 backdrop-blur-sm bg-navy/30">
+              <span className="text-gold text-sm font-inter font-semibold tracking-widest uppercase mb-4 block">
+                Ready to Order?
+              </span>
+              <h2 className="font-playfair text-cream text-[clamp(28px,4vw,48px)] font-bold mb-2">
+                {t.catering.orders.title}
+              </h2>
+              <div className="w-16 h-0.5 bg-gold mx-auto my-6" />
+              <a
+                href="tel:732-279-3999"
+                className="font-playfair text-gold text-[clamp(28px,6vw,64px)] font-bold block mb-6 hover:text-gold-light transition-colors"
+              >
+                {t.catering.orders.phone}
+              </a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <a
+                  href="tel:732-279-3999"
+                  className="btn-gold-solid inline-flex items-center gap-2 text-lg px-10 py-4"
+                >
+                  <Phone size={20} />
+                  {t.catering.orders.cta}
+                </a>
+              </div>
+              <div className="flex items-center justify-center gap-3 text-cream/50">
+                <MapPin size={16} className="text-gold/60" />
+                <p className="text-sm sm:text-base">
+                  {t.catering.orders.address}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1605,14 +1660,15 @@ function App() {
             </div>
           </div>
           
-          {/* Full Menu PDF */}
+          {/* Full Menu — opens in new tab preview */}
           <div className="mt-16 text-center">
-            <a 
-              href="/catering-menu.jpg" 
+            <a
+              href="/catering-menu.jpg"
               target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 bg-navy text-cream font-semibold hover:bg-navy-light transition-colors rounded-lg"
             >
-              <Download size={20} />
+              <Eye size={20} />
               {t.catering.cta}
             </a>
           </div>
