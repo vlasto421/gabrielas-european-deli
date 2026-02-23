@@ -1252,11 +1252,16 @@ function App() {
         </div>
       </section>
 
-      {/* Featured Products Showcase — dark navy-dark for contrast */}
-      <section className="relative z-25 bg-navy-dark overflow-hidden">
-        <div className="absolute inset-0 wood-texture opacity-8 mix-blend-multiply" />
+      {/* Featured Products Showcase — wooden background */}
+      <section className="relative z-25 overflow-hidden">
+        {/* Full wooden background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 wood-texture opacity-100" style={{ backgroundSize: '600px' }} />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#3B2315]/92 via-[#2A1A0E]/88 to-[#3B2315]/92" />
+        </div>
         <div className="absolute inset-0 paper-grain" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center pt-16 sm:pt-24 px-4">
@@ -1349,14 +1354,14 @@ function App() {
         </div>
       </section>
 
-      {/* Section 5: Catering Header — with background image */}
+      {/* Section 5: Catering Header — with event background */}
       <section ref={cateringHeaderRef} className={`${isMobile ? 'py-20 sm:py-28' : 'section-pinned'} relative z-50`}>
-        {/* Background image */}
+        {/* Background image — storefront interior */}
         <div className="absolute inset-0">
-          <img src="/catering-menu.jpg" alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-navy/85" />
+          <img src="/storefront-2.jpg" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-navy/80 backdrop-blur-[2px]" />
         </div>
-        <div className="absolute inset-0 wood-texture opacity-10 mix-blend-multiply" />
+        <div className="absolute inset-0 wood-texture opacity-8 mix-blend-multiply" />
 
         <div className={`catering-header-content relative ${isMobile ? '' : 'h-full'} flex flex-col justify-center items-center px-4`}>
           <div className="text-center max-w-3xl mx-auto">
@@ -1675,57 +1680,64 @@ function App() {
         </div>
       </section>
 
-      {/* Section 11: Contact + Form */}
-      <section ref={contactRef} className="relative z-[110] bg-navy py-20 sm:py-32">
-        <div className="absolute inset-0 wood-texture opacity-15 mix-blend-multiply" />
+      {/* Section 11: Contact + Form — cream background for contrast */}
+      <section ref={contactRef} className="relative z-[110] bg-cream py-20 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 paper-grain" />
-        
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
+        {/* Decorative blurs */}
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gold/5 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-navy/5 rounded-full blur-[120px]" />
+
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section header */}
+          <div className="text-center mb-14">
+            <span className="text-gold-dark text-sm font-inter font-semibold tracking-widest uppercase mb-4 block">Get In Touch</span>
+            <h2 className="font-playfair text-navy text-[clamp(28px,4vw,48px)] font-bold mb-4">
+              {t.contact.title}
+            </h2>
+            <p className="text-navy/50 text-lg max-w-lg mx-auto">
+              {t.contact.subtitle}
+            </p>
+            <div className="w-24 h-1 bg-gold mx-auto mt-6" />
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Info */}
             <div>
-              <h2 className="font-playfair text-cream text-[clamp(28px,4vw,48px)] font-bold mb-4">
-                {t.contact.title}
-              </h2>
-              <p className="text-cream/70 mb-8">
-                {t.contact.subtitle}
-              </p>
-              
-              <div className="space-y-5">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="text-gold" size={20} />
+              {/* Contact cards */}
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                <a href={`tel:${t.contact.info.phone}`} className="group bg-white rounded-xl p-5 shadow-md border border-gold/10 hover:border-gold/30 hover:shadow-lg transition-all">
+                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-3 group-hover:bg-gold/20 transition-colors">
+                    <Phone className="text-gold" size={22} />
                   </div>
-                  <div>
-                    <p className="text-cream font-medium">{t.contact.info.address}</p>
+                  <p className="text-navy/40 text-xs font-semibold uppercase tracking-wider mb-1">Phone</p>
+                  <p className="text-navy font-semibold group-hover:text-gold-dark transition-colors">{t.contact.info.phone}</p>
+                </a>
+                <a href={`mailto:${t.contact.info.email}`} className="group bg-white rounded-xl p-5 shadow-md border border-gold/10 hover:border-gold/30 hover:shadow-lg transition-all">
+                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-3 group-hover:bg-gold/20 transition-colors">
+                    <Mail className="text-gold" size={22} />
                   </div>
+                  <p className="text-navy/40 text-xs font-semibold uppercase tracking-wider mb-1">Email</p>
+                  <p className="text-navy font-semibold group-hover:text-gold-dark transition-colors text-sm">{t.contact.info.email}</p>
+                </a>
+                <div className="bg-white rounded-xl p-5 shadow-md border border-gold/10">
+                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-3">
+                    <MapPin className="text-gold" size={22} />
+                  </div>
+                  <p className="text-navy/40 text-xs font-semibold uppercase tracking-wider mb-1">Address</p>
+                  <p className="text-navy font-semibold text-sm">{t.contact.info.address}</p>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="text-gold" size={20} />
+                <div className="bg-white rounded-xl p-5 shadow-md border border-gold/10">
+                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-3">
+                    <Clock className="text-gold" size={22} />
                   </div>
-                  <a href={`tel:${t.contact.info.phone}`} className="text-cream font-medium hover:text-gold transition-colors">
-                    {t.contact.info.phone}
-                  </a>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="text-gold" size={20} />
-                  </div>
-                  <a href={`mailto:${t.contact.info.email}`} className="text-cream font-medium hover:text-gold transition-colors">
-                    {t.contact.info.email}
-                  </a>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0">
-                    <Clock className="text-gold" size={20} />
-                  </div>
-                  <p className="text-cream/80">{t.contact.info.hours}</p>
+                  <p className="text-navy/40 text-xs font-semibold uppercase tracking-wider mb-1">Hours</p>
+                  <p className="text-navy font-semibold text-sm">{t.contact.info.hours}</p>
                 </div>
               </div>
-              
+
               {/* Map */}
-              <div className="mt-8 aspect-video bg-navy-light rounded-xl overflow-hidden border border-gold/20">
+              <div className="aspect-video bg-navy-light rounded-2xl overflow-hidden border border-gold/15 shadow-lg">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.3975784327!2d-74.2085!3d40.0184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDAxJzA2LjIiTiA3NMKwMTInMzAuNiJX!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus"
                   width="100%"
@@ -1738,70 +1750,84 @@ function App() {
                 />
               </div>
             </div>
-            
-            {/* Form */}
-            <div className="bg-cream rounded-xl p-6 sm:p-8 relative">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gold rounded-t-xl" />
-              <h3 className="font-playfair text-navy text-2xl font-bold mb-6">
-                {t.contact.title}
-              </h3>
-              
-              <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('Thank you! We will contact you within 24 hours.'); }}>
-                <div>
-                  <label className="block text-navy/70 text-sm mb-1.5 font-medium">{t.contact.form.name}</label>
-                  <input 
-                    type="text" 
-                    className="w-full px-4 py-3 bg-cream-dark border border-navy/20 text-navy rounded-lg focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 transition-all"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-navy/70 text-sm mb-1.5 font-medium">{t.contact.form.phone}</label>
-                    <input 
-                      type="tel" 
-                      className="w-full px-4 py-3 bg-cream-dark border border-navy/20 text-navy rounded-lg focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 transition-all"
-                      placeholder="Your phone"
-                    />
+
+            {/* Enhanced Form */}
+            <div className="relative">
+              <div className="bg-navy rounded-2xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+                {/* Gold accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-gold/60 via-gold to-gold/60" />
+                {/* Subtle texture overlay */}
+                <div className="absolute inset-0 wood-texture opacity-5 mix-blend-overlay pointer-events-none" />
+
+                <div className="relative">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-full bg-gold/15 flex items-center justify-center">
+                      <Mail className="text-gold" size={18} />
+                    </div>
+                    <h3 className="font-playfair text-cream text-2xl font-bold">
+                      {t.contact.title}
+                    </h3>
                   </div>
-                  <div>
-                    <label className="block text-navy/70 text-sm mb-1.5 font-medium">{t.contact.form.email}</label>
-                    <input 
-                      type="email" 
-                      className="w-full px-4 py-3 bg-cream-dark border border-navy/20 text-navy rounded-lg focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 transition-all"
-                      placeholder="Your email"
-                    />
-                  </div>
+                  <p className="text-cream/40 text-sm mb-8 pl-[52px]">Fill out the form and we'll get back to you within 24 hours.</p>
+
+                  <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); alert('Thank you! We will contact you within 24 hours.'); }}>
+                    <div>
+                      <label className="block text-cream/60 text-xs mb-2 font-semibold uppercase tracking-wider">{t.contact.form.name}</label>
+                      <input
+                        type="text"
+                        className="w-full px-4 py-3.5 bg-navy-light/60 border border-gold/15 text-cream rounded-xl focus:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold/15 transition-all placeholder:text-cream/25"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-cream/60 text-xs mb-2 font-semibold uppercase tracking-wider">{t.contact.form.phone}</label>
+                        <input
+                          type="tel"
+                          className="w-full px-4 py-3.5 bg-navy-light/60 border border-gold/15 text-cream rounded-xl focus:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold/15 transition-all placeholder:text-cream/25"
+                          placeholder="(732) 000-0000"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-cream/60 text-xs mb-2 font-semibold uppercase tracking-wider">{t.contact.form.email}</label>
+                        <input
+                          type="email"
+                          className="w-full px-4 py-3.5 bg-navy-light/60 border border-gold/15 text-cream rounded-xl focus:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold/15 transition-all placeholder:text-cream/25"
+                          placeholder="your@email.com"
+                        />
+                      </div>
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-cream/60 text-xs mb-2 font-semibold uppercase tracking-wider">{t.contact.form.date}</label>
+                        <input
+                          type="date"
+                          className="w-full px-4 py-3.5 bg-navy-light/60 border border-gold/15 text-cream rounded-xl focus:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold/15 transition-all"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-cream/60 text-xs mb-2 font-semibold uppercase tracking-wider">{t.contact.form.guests}</label>
+                        <input
+                          type="number"
+                          className="w-full px-4 py-3.5 bg-navy-light/60 border border-gold/15 text-cream rounded-xl focus:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold/15 transition-all placeholder:text-cream/25"
+                          placeholder="e.g. 25"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-cream/60 text-xs mb-2 font-semibold uppercase tracking-wider">{t.contact.form.message}</label>
+                      <textarea
+                        rows={4}
+                        className="w-full px-4 py-3.5 bg-navy-light/60 border border-gold/15 text-cream rounded-xl focus:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold/15 transition-all resize-none placeholder:text-cream/25"
+                        placeholder="Tell us about your event, preferred dishes, dietary needs..."
+                      />
+                    </div>
+                    <button type="submit" className="w-full bg-gold text-navy py-4 rounded-xl font-bold text-base hover:bg-gold-light transition-all shadow-lg shadow-gold/20 hover:shadow-gold/30 hover:-translate-y-0.5 active:translate-y-0">
+                      {t.contact.form.submit}
+                    </button>
+                  </form>
                 </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-navy/70 text-sm mb-1.5 font-medium">{t.contact.form.date}</label>
-                    <input 
-                      type="date" 
-                      className="w-full px-4 py-3 bg-cream-dark border border-navy/20 text-navy rounded-lg focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 transition-all"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-navy/70 text-sm mb-1.5 font-medium">{t.contact.form.guests}</label>
-                    <input 
-                      type="number" 
-                      className="w-full px-4 py-3 bg-cream-dark border border-navy/20 text-navy rounded-lg focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 transition-all"
-                      placeholder="Number of guests"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-navy/70 text-sm mb-1.5 font-medium">{t.contact.form.message}</label>
-                  <textarea 
-                    rows={4}
-                    className="w-full px-4 py-3 bg-cream-dark border border-navy/20 text-navy rounded-lg focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 transition-all resize-none"
-                    placeholder="Tell us about your event..."
-                  />
-                </div>
-                <button type="submit" className="w-full bg-navy text-cream py-4 rounded-lg font-semibold hover:bg-navy-light transition-colors">
-                  {t.contact.form.submit}
-                </button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
@@ -1809,88 +1835,110 @@ function App() {
 
       </main>
 
-      {/* Enhanced Footer */}
-      <footer className="relative z-[120] bg-navy-dark border-t border-gold/20">
-        {/* Decorative top edge */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+      {/* Premium Footer */}
+      <footer className="relative z-[120] overflow-hidden">
+        {/* Wood texture background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 wood-texture opacity-100" style={{ backgroundSize: '600px' }} />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1a0f08]/95 via-[#1a0f08]/92 to-[#0d0704]/97" />
+        </div>
+        <div className="absolute inset-0 paper-grain" />
+        {/* Gold top border */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-            {/* Brand Column */}
-            <div className="flex flex-col items-center md:items-start">
-              <img src="/logo.png" alt="Gabriela's European Deli" className="h-12 w-auto mb-4" />
-              <p className="text-cream/60 text-sm leading-relaxed text-center md:text-left max-w-xs">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Main footer content */}
+          <div className="py-16 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+            {/* Brand Column — wider */}
+            <div className="md:col-span-5 flex flex-col items-center md:items-start">
+              <img src="/logo.png" alt="Gabriela's European Deli" className="h-14 w-auto mb-5" />
+              <p className="text-cream/50 text-sm leading-relaxed text-center md:text-left max-w-sm mb-6">
                 Authentic European flavors in Toms River, NJ. Serving handmade pierogi, imported cheeses, and traditional dishes since 2009.
               </p>
-              <div className="flex items-center gap-4 mt-6">
+              {/* Storefront image in footer */}
+              <div className="w-full max-w-xs rounded-xl overflow-hidden border border-gold/15 shadow-lg mb-6 hidden md:block">
+                <img src="/storefront-1.jpg" alt="Our storefront" className="w-full h-32 object-cover" loading="lazy" />
+              </div>
+              <div className="flex items-center gap-3">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
-                   className="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center text-cream/60 hover:text-gold hover:bg-gold/20 hover:border-gold/40 transition-all">
+                   className="w-11 h-11 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center text-cream/50 hover:text-gold hover:bg-gold/20 hover:border-gold/40 transition-all">
                   <Facebook size={18} />
                 </a>
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-                   className="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center text-cream/60 hover:text-gold hover:bg-gold/20 hover:border-gold/40 transition-all">
+                   className="w-11 h-11 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center text-cream/50 hover:text-gold hover:bg-gold/20 hover:border-gold/40 transition-all">
                   <Instagram size={18} />
                 </a>
               </div>
             </div>
 
             {/* Quick Links */}
-            <div className="flex flex-col items-center md:items-start">
-              <h4 className="font-playfair text-cream text-lg font-bold mb-4">Quick Links</h4>
-              <nav className="flex flex-col gap-3">
-                <button onClick={() => scrollToSection(aboutRef)} className="text-cream/60 hover:text-gold transition-colors text-sm text-center md:text-left">
+            <div className="md:col-span-3 flex flex-col items-center md:items-start">
+              <h4 className="text-gold text-xs font-inter font-bold tracking-widest uppercase mb-5">Quick Links</h4>
+              <nav className="flex flex-col gap-3.5">
+                <button onClick={() => scrollToSection(aboutRef)} className="text-cream/50 hover:text-gold hover:translate-x-1 transition-all text-sm text-center md:text-left flex items-center gap-2">
+                  <ChevronRight size={14} className="text-gold/40" />
                   {t.nav.about}
                 </button>
-                <button onClick={() => scrollToSection(menuRef)} className="text-cream/60 hover:text-gold transition-colors text-sm text-center md:text-left">
+                <button onClick={() => scrollToSection(menuRef)} className="text-cream/50 hover:text-gold hover:translate-x-1 transition-all text-sm text-center md:text-left flex items-center gap-2">
+                  <ChevronRight size={14} className="text-gold/40" />
                   {t.nav.menu}
                 </button>
-                <button onClick={() => scrollToSection(reviewsRef)} className="text-cream/60 hover:text-gold transition-colors text-sm text-center md:text-left">
+                <button onClick={() => scrollToSection(reviewsRef)} className="text-cream/50 hover:text-gold hover:translate-x-1 transition-all text-sm text-center md:text-left flex items-center gap-2">
+                  <ChevronRight size={14} className="text-gold/40" />
                   {t.nav.reviews}
                 </button>
-                <button onClick={() => scrollToSection(contactRef)} className="text-cream/60 hover:text-gold transition-colors text-sm text-center md:text-left">
+                <button onClick={() => scrollToSection(contactRef)} className="text-cream/50 hover:text-gold hover:translate-x-1 transition-all text-sm text-center md:text-left flex items-center gap-2">
+                  <ChevronRight size={14} className="text-gold/40" />
                   {t.nav.catering}
                 </button>
               </nav>
             </div>
 
             {/* Contact Info */}
-            <div className="flex flex-col items-center md:items-start">
-              <h4 className="font-playfair text-cream text-lg font-bold mb-4">Visit Us</h4>
-              <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-3">
-                  <MapPin className="text-gold flex-shrink-0" size={16} />
-                  <span className="text-cream/60 text-sm">{t.contact.info.address}</span>
+            <div className="md:col-span-4 flex flex-col items-center md:items-start">
+              <h4 className="text-gold text-xs font-inter font-bold tracking-widest uppercase mb-5">Visit Us</h4>
+              <div className="flex flex-col gap-4">
+                <div className="flex items-start gap-3 group">
+                  <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <MapPin className="text-gold" size={14} />
+                  </div>
+                  <span className="text-cream/50 text-sm leading-relaxed">{t.contact.info.address}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone className="text-gold flex-shrink-0" size={16} />
-                  <a href={`tel:${t.contact.info.phone}`} className="text-cream/60 hover:text-gold transition-colors text-sm">
+                  <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="text-gold" size={14} />
+                  </div>
+                  <a href={`tel:${t.contact.info.phone}`} className="text-cream/50 hover:text-gold transition-colors text-sm font-medium">
                     {t.contact.info.phone}
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Mail className="text-gold flex-shrink-0" size={16} />
-                  <a href={`mailto:${t.contact.info.email}`} className="text-cream/60 hover:text-gold transition-colors text-sm">
+                  <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="text-gold" size={14} />
+                  </div>
+                  <a href={`mailto:${t.contact.info.email}`} className="text-cream/50 hover:text-gold transition-colors text-sm">
                     {t.contact.info.email}
                   </a>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Clock className="text-gold flex-shrink-0" size={16} />
-                  <span className="text-cream/60 text-sm">{t.contact.info.hours}</span>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Clock className="text-gold" size={14} />
+                  </div>
+                  <span className="text-cream/50 text-sm">{t.contact.info.hours}</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gold/10">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
-            <p className="text-cream/40 text-xs text-center">
+          {/* Bottom Bar */}
+          <div className="border-t border-gold/10 py-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <p className="text-cream/30 text-xs text-center">
               {t.footer.copyright}
             </p>
-            <p className="text-cream/30 text-xs">
-              1825 Hooper Avenue, Toms River, NJ 08753
-            </p>
+            <div className="flex items-center gap-2 text-cream/20 text-xs">
+              <MapPin size={12} />
+              <span>1825 Hooper Avenue, Toms River, NJ 08753</span>
+            </div>
           </div>
         </div>
       </footer>
