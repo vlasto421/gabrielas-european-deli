@@ -713,7 +713,7 @@ function App() {
         .fromTo('.hero-tagline', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.3')
         .fromTo('.hero-cta', { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out' }, '-=0.2');
 
-      // Hero floating deli items — scatter outward on scroll
+      // Hero floating deli items — scatter outward and disappear quickly on scroll
       gsap.utils.toArray<HTMLElement>('.hero-float-item').forEach((item) => {
         const tx = parseFloat(item.dataset.tx || '0');
         const ty = parseFloat(item.dataset.ty || '0');
@@ -722,13 +722,14 @@ function App() {
           x: tx,
           y: ty,
           rotation: rot,
+          scale: 0.3,
           opacity: 0,
-          ease: 'power2.in',
+          ease: 'power3.in',
           scrollTrigger: {
             trigger: heroRef.current,
             start: 'top top',
-            end: 'bottom top',
-            scrub: 0.8,
+            end: '60% top',
+            scrub: 0.6,
           }
         });
       });
@@ -1109,17 +1110,17 @@ function App() {
         <div className="absolute inset-0 bg-gradient-to-b from-navy via-transparent to-navy/80" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
 
-        {/* Floating 3D Deli Items — scatter outward on scroll */}
+        {/* Floating Deli Items — large, spread out, disappear on scroll */}
         <div className="absolute inset-0 pointer-events-none hidden md:block">
           {[
-            { src: '/deli-pierogi.png', x: '12%', y: '18%', size: 90, tx: -300, ty: -200, rot: -45, delay: 0 },
-            { src: '/deli-cheese.png', x: '78%', y: '15%', size: 80, tx: 280, ty: -180, rot: 35, delay: 0.5 },
-            { src: '/deli-sausage.png', x: '8%', y: '55%', size: 75, tx: -350, ty: 100, rot: -30, delay: 1 },
-            { src: '/deli-bread.png', x: '85%', y: '50%', size: 85, tx: 320, ty: 80, rot: 25, delay: 0.8 },
-            { src: '/deli-salami.png', x: '20%', y: '78%', size: 65, tx: -250, ty: 250, rot: -50, delay: 1.2 },
-            { src: '/deli-pepper.png', x: '75%', y: '80%', size: 55, tx: 220, ty: 200, rot: 40, delay: 0.3 },
-            { src: '/deli-dill.png', x: '50%', y: '12%', size: 50, tx: 0, ty: -300, rot: 20, delay: 0.7 },
-            { src: '/deli-mustard.png', x: '45%', y: '82%', size: 55, tx: -80, ty: 280, rot: -15, delay: 1.5 },
+            { src: '/deli-pierogi.png', x: '6%',  y: '20%', size: 160, tx: -500, ty: -350, rot: -55, delay: 0 },
+            { src: '/deli-cheese.png',  x: '88%', y: '14%', size: 140, tx: 450,  ty: -300, rot: 40,  delay: 0.4 },
+            { src: '/deli-sausage.png', x: '4%',  y: '60%', size: 130, tx: -550, ty: 150,  rot: -35, delay: 0.9 },
+            { src: '/deli-bread.png',   x: '92%', y: '55%', size: 150, tx: 500,  ty: 120,  rot: 30,  delay: 0.6 },
+            { src: '/deli-salami.png',  x: '15%', y: '85%', size: 120, tx: -400, ty: 400,  rot: -60, delay: 1.1 },
+            { src: '/deli-pepper.png',  x: '82%', y: '82%', size: 110, tx: 380,  ty: 350,  rot: 45,  delay: 0.3 },
+            { src: '/deli-dill.png',    x: '50%', y: '6%',  size: 100, tx: 0,    ty: -500, rot: 25,  delay: 0.7 },
+            { src: '/deli-mustard.png', x: '42%', y: '90%', size: 100, tx: -120, ty: 450,  rot: -20, delay: 1.3 },
           ].map((item, i) => (
             <img
               key={i}
@@ -1128,15 +1129,15 @@ function App() {
               data-tx={item.tx}
               data-ty={item.ty}
               data-rot={item.rot}
-              className="hero-float-item absolute opacity-40 drop-shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:opacity-60 transition-opacity"
+              className="hero-float-item absolute opacity-50 drop-shadow-[0_12px_32px_rgba(0,0,0,0.5)]"
               style={{
                 left: item.x,
                 top: item.y,
                 width: item.size,
                 height: 'auto',
                 transform: 'translate(-50%, -50%)',
-                animation: `float ${4 + i * 0.3}s ease-in-out ${item.delay}s infinite`,
-                filter: 'drop-shadow(0 4px 20px rgba(255,215,0,0.15))',
+                animation: `float ${4 + i * 0.4}s ease-in-out ${item.delay}s infinite`,
+                filter: 'drop-shadow(0 6px 24px rgba(255,215,0,0.12))',
               }}
             />
           ))}
@@ -1171,30 +1172,33 @@ function App() {
         </div>
       </section>
 
-      {/* Section 2: About Us — warm cream/gold background to break up blue */}
-      <section ref={aboutRef} className="relative z-20 bg-cream py-20 sm:py-32">
+      {/* Section 2: About Us — warm wood texture background (full-size, no tile) */}
+      <section ref={aboutRef} className="relative z-20 py-20 sm:py-32">
+        {/* Full-size wood background */}
+        <div className="absolute inset-0 wood-texture-cover" />
+        <div className="absolute inset-0 bg-[#1a0f08]/80" />
         <div className="absolute inset-0 paper-grain" />
-        {/* Decorative gold accent at top */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Content */}
             <div className="about-content order-2 lg:order-1">
               <span className="text-gold text-sm font-inter font-semibold tracking-widest uppercase mb-4 block">{t.hero.location}</span>
-              <h2 className="font-playfair text-navy text-[clamp(32px,5vw,56px)] font-bold mb-4">
+              <h2 className="font-playfair text-cream text-[clamp(32px,5vw,56px)] font-bold mb-4">
                 {t.about.title}
               </h2>
-              <p className="text-navy/60 text-xl sm:text-2xl font-playfair italic mb-6">
+              <p className="text-gold/80 text-xl sm:text-2xl font-playfair italic mb-6">
                 {t.about.subtitle}
               </p>
-              <p className="text-navy/80 text-base sm:text-lg leading-relaxed mb-4">
+              <p className="text-cream/85 text-base sm:text-lg leading-relaxed mb-4">
                 {t.about.description}
               </p>
-              <p className="text-navy/60 text-base leading-relaxed mb-8">
+              <p className="text-cream/65 text-base leading-relaxed mb-8">
                 {t.about.description2}
               </p>
-              <div className="flex items-center gap-3 text-gold-dark">
+              <div className="flex items-center gap-3 text-gold">
                 <MapPin size={20} />
                 <span className="font-medium">{t.about.location}</span>
               </div>
@@ -1252,16 +1256,10 @@ function App() {
         </div>
       </section>
 
-      {/* Featured Products Showcase — wooden background */}
-      <section className="relative z-25 overflow-hidden">
-        {/* Full wooden background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 wood-texture opacity-100" style={{ backgroundSize: '600px' }} />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#3B2315]/92 via-[#2A1A0E]/88 to-[#3B2315]/92" />
-        </div>
+      {/* Featured Products Showcase — navy blue */}
+      <section className="relative z-25 bg-navy overflow-hidden">
+        <div className="absolute inset-0 wood-texture opacity-10 mix-blend-multiply" />
         <div className="absolute inset-0 paper-grain" />
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center pt-16 sm:pt-24 px-4">
@@ -1354,14 +1352,13 @@ function App() {
         </div>
       </section>
 
-      {/* Section 5: Catering Header — with event background */}
+      {/* Section 5: Catering Header */}
       <section ref={cateringHeaderRef} className={`${isMobile ? 'py-20 sm:py-28' : 'section-pinned'} relative z-50`}>
-        {/* Background image — storefront interior */}
+        {/* Background image */}
         <div className="absolute inset-0">
-          <img src="/storefront-2.jpg" alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-navy/80 backdrop-blur-[2px]" />
+          <img src="/catering-event.jpg" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-navy/75" />
         </div>
-        <div className="absolute inset-0 wood-texture opacity-8 mix-blend-multiply" />
 
         <div className={`catering-header-content relative ${isMobile ? '' : 'h-full'} flex flex-col justify-center items-center px-4`}>
           <div className="text-center max-w-3xl mx-auto">
@@ -1837,11 +1834,9 @@ function App() {
 
       {/* Premium Footer */}
       <footer className="relative z-[120] overflow-hidden">
-        {/* Wood texture background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 wood-texture opacity-100" style={{ backgroundSize: '600px' }} />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1a0f08]/95 via-[#1a0f08]/92 to-[#0d0704]/97" />
-        </div>
+        {/* Full-size wood texture background (no tiling) */}
+        <div className="absolute inset-0 wood-texture-cover" />
+        <div className="absolute inset-0 bg-[#1a0f08]/82" />
         <div className="absolute inset-0 paper-grain" />
         {/* Gold top border */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
