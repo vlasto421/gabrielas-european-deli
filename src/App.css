@@ -1,0 +1,430 @@
+/* Additional App Styles - Polished & Mobile Optimized */
+
+/* Smooth scroll for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure pinned sections work correctly */
+.section-pinned {
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero specific styles */
+.hero-headline,
+.hero-headline2 {
+  will-change: transform, opacity;
+}
+
+/* Image card hover effects */
+.image-card {
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.image-card:hover {
+  transform: scale(1.03);
+}
+
+/* Floating animation for images */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Star sparkle animation */
+@keyframes star-sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+}
+
+.star-gold {
+  animation: star-sparkle 3s ease-in-out infinite;
+}
+
+/* Button hover effects */
+.btn-gold {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-gold:hover::before {
+  left: 100%;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+.btn-gold-solid {
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-gold-solid:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+/* Form input focus states */
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.15);
+}
+
+/* Menu item hover */
+.menu-item {
+  transition: background-color 0.2s ease;
+}
+
+.menu-item:hover {
+  background-color: rgba(11, 31, 63, 0.03);
+}
+
+/* Scroll indicator animation */
+@keyframes bounce-dot {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+}
+
+.animate-bounce {
+  animation: bounce-dot 2s ease-in-out infinite;
+}
+
+/* Review card hover */
+.review-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Slider transitions */
+.about-slider img {
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Language dropdown animation */
+@keyframes dropdown-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.lang-dropdown > div:last-child {
+  animation: dropdown-fade 0.2s ease-out;
+}
+
+/* Mobile menu animation */
+@keyframes menu-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Feature text styling */
+.feature-text {
+  line-height: 1.8;
+}
+
+/* Eyebrow text styling */
+.eyebrow {
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .eyebrow {
+    font-size: 0.875rem;
+  }
+}
+
+/* Gold accent line */
+.gold-accent-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FFD700, transparent);
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+  margin: 2rem 0;
+}
+
+/* Contact info cards */
+.contact-info-item {
+  transition: transform 0.2s ease;
+}
+
+.contact-info-item:hover {
+  transform: translateX(4px);
+}
+
+/* Footer link hover */
+footer a {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+footer a:hover {
+  transform: translateY(-2px);
+}
+
+/* Mobile optimizations */
+@media (max-width: 1024px) {
+  .image-card {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  /* Adjust floating items for tablets */
+  .floating-item {
+    opacity: 0.15 !important;
+    width: 40px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-pinned {
+    padding-top: 80px;
+  }
+
+  .hero-headline {
+    font-size: clamp(36px, 12vw, 48px) !important;
+  }
+
+  .hero-headline2 {
+    font-size: clamp(28px, 10vw, 40px) !important;
+  }
+
+  /* Hide floating items on mobile */
+  .floating-item {
+    display: none !important;
+  }
+
+  /* Adjust button sizes */
+  .btn-gold,
+  .btn-gold-solid {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  /* Feature section text alignment on mobile */
+  .pierogi-text,
+  .salads-text,
+  .crepes-text,
+  .hotdishes-text {
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  /* Review cards stack */
+  .review-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-float,
+  .animate-bounce,
+  .animate-bounce-slow {
+    animation: none !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-gold {
+    border-width: 3px;
+  }
+  
+  .text-cream\/70,
+  .text-cream\/50,
+  .text-cream\/60 {
+    color: rgba(246, 242, 234, 0.95) !important;
+  }
+  
+  .text-navy\/80,
+  .text-navy\/70 {
+    color: rgba(11, 31, 63, 0.95) !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .section-pinned {
+    height: auto;
+    min-height: auto;
+    page-break-inside: avoid;
+  }
+  
+  nav,
+  .scroll-indicator,
+  .fixed,
+  .floating-item,
+  .lang-dropdown {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .bg-navy {
+    background: white !important;
+  }
+  
+  .text-cream {
+    color: black !important;
+  }
+}
+
+/* Loading state */
+.loading {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.loaded {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Wood texture overlay enhancement */
+.wood-texture {
+  pointer-events: none;
+}
+
+/* Paper grain enhancement */
+.paper-grain::after {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ensure content is above grain */
+.paper-grain > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Map iframe styling */
+iframe {
+  filter: grayscale(30%) brightness(0.9) contrast(1.1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B1F3F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFD700;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFE44D;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 215, 0, 0.3);
+  color: #F6F2EA;
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid #FFD700;
+  outline-offset: 2px;
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .btn-gold:hover,
+  .btn-gold-solid:hover {
+    transform: none;
+  }
+  
+  .image-card:hover {
+    transform: none;
+  }
+  
+  .review-card:hover {
+    transform: none;
+  }
+}
+
+/* Safe area for notched devices */
+@supports (padding-top: env(safe-area-inset-top)) {
+  nav {
+    padding-top: env(safe-area-inset-top);
+  }
+}

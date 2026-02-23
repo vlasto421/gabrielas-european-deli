@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 216 70% 15%;
+    --foreground: 40 33% 94%;
+    --card: 216 70% 15%;
+    --card-foreground: 40 33% 94%;
+    --popover: 216 70% 15%;
+    --popover-foreground: 40 33% 94%;
+    --primary: 51 100% 50%;
+    --primary-foreground: 216 70% 15%;
+    --secondary: 40 33% 94%;
+    --secondary-foreground: 216 70% 15%;
+    --muted: 216 50% 25%;
+    --muted-foreground: 40 33% 94%;
+    --accent: 51 100% 50%;
+    --accent-foreground: 216 70% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 216 50% 25%;
+    --input: 216 50% 25%;
+    --ring: 51 100% 50%;
+    --radius: 0rem;
+    --sidebar-background: 216 70% 15%;
+    --sidebar-foreground: 40 33% 94%;
+    --sidebar-primary: 51 100% 50%;
+    --sidebar-primary-foreground: 216 70% 15%;
+    --sidebar-accent: 216 50% 25%;
+    --sidebar-accent-foreground: 40 33% 94%;
+    --sidebar-border: 216 50% 25%;
+    --sidebar-ring: 51 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-navy text-cream font-inter antialiased;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  .wood-texture {
+    background-image: url('/wood-texture.png');
+    background-repeat: repeat;
+    background-size: 400px;
+  }
+  
+  .paper-grain {
+    position: relative;
+  }
+  
+  .paper-grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+  
+  .gold-border {
+    border: 1px solid rgba(255, 215, 0, 0.4);
+  }
+  
+  .gold-text {
+    color: #FFD700;
+  }
+  
+  .section-pinned {
+    @apply w-screen h-screen relative overflow-hidden;
+  }
+  
+  .star-row {
+    @apply flex justify-center gap-1.5;
+  }
+  
+  .star-gold {
+    @apply text-gold;
+    font-size: clamp(10px, 1.2vw, 16px);
+  }
+  
+  .btn-gold {
+    @apply px-8 py-3 border-2 border-gold text-gold font-inter font-semibold 
+           transition-all duration-300 hover:bg-gold hover:text-navy;
+  }
+  
+  .btn-gold-solid {
+    @apply px-8 py-3 bg-gold text-navy font-inter font-semibold 
+           transition-all duration-300 hover:bg-gold-light;
+  }
+  
+  .image-card {
+    @apply relative overflow-hidden;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+  }
+  
+  .image-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #FFD700, transparent);
+    opacity: 0.8;
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+  
+  .polaroid {
+    @apply bg-cream p-3 pb-8;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  
+  .polaroid:hover {
+    transform: rotate(-2deg) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  }
+  
+  .menu-item {
+    @apply flex justify-between items-baseline py-2 border-b border-navy/10;
+  }
+  
+  .menu-item-price {
+    @apply font-semibold text-navy/80;
+  }
+  
+  .divider-gold {
+    @apply w-px bg-gold/60;
+  }
+  
+  .eyebrow {
+    @apply text-gold text-sm font-inter font-semibold tracking-widest uppercase;
+  }
+  
+  .feature-text {
+    @apply text-cream/80 text-base leading-relaxed;
+  }
+  
+  .scroll-indicator {
+    @apply absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2;
+  }
+  
+  .scroll-indicator::after {
+    content: '';
+    @apply w-6 h-10 border-2 border-cream/40 rounded-full relative;
+  }
+  
+  .scroll-indicator-dot {
+    @apply w-1.5 h-1.5 bg-gold rounded-full animate-bounce;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-paused {
+    animation-play-state: paused;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B1F3F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFD700;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFE44D;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 215, 0, 0.3);
+  color: #F6F2EA;
+}
