@@ -713,27 +713,6 @@ function App() {
         .fromTo('.hero-tagline', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.3')
         .fromTo('.hero-cta', { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out' }, '-=0.2');
 
-      // Hero floating deli items — scatter outward and disappear quickly on scroll
-      gsap.utils.toArray<HTMLElement>('.hero-float-item').forEach((item) => {
-        const tx = parseFloat(item.dataset.tx || '0');
-        const ty = parseFloat(item.dataset.ty || '0');
-        const rot = parseFloat(item.dataset.rot || '0');
-        gsap.to(item, {
-          x: tx,
-          y: ty,
-          rotation: rot,
-          scale: 0.3,
-          opacity: 0,
-          ease: 'power3.in',
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: '60% top',
-            scrub: 0.6,
-          }
-        });
-      });
-
       // About section animation
       gsap.fromTo('.about-content',
         { opacity: 0, x: -50 },
@@ -789,33 +768,20 @@ function App() {
             }
           );
         } else {
-          ScrollTrigger.create({
-            trigger: ref.current,
-            start: 'top top',
-            end: '+=100%',
-            pin: true,
-            pinSpacing: true,
-            anticipatePin: 1,
-            scrub: 0.5,
-            onUpdate: (self) => {
-              const progress = self.progress;
-              const image = `.${className}-image`;
-              const text = `.${className}-text`;
-
-              if (progress <= 0.25) {
-                const enterProgress = progress / 0.25;
-                gsap.set(image, { x: 50 * (1 - enterProgress) + 'vw', opacity: enterProgress });
-                gsap.set(text, { x: -30 * (1 - enterProgress) + 'vw', opacity: enterProgress });
-              } else if (progress <= 0.75) {
-                gsap.set(image, { x: 0, opacity: 1 });
-                gsap.set(text, { x: 0, opacity: 1 });
-              } else {
-                const exitProgress = (progress - 0.75) / 0.25;
-                gsap.set(image, { x: -20 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.8 });
-                gsap.set(text, { x: 14 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.8 });
-              }
+          // Simple pin with enter animation only — no exit fade to prevent double-scroll ghost
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: ref.current,
+              start: 'top top',
+              end: '+=80%',
+              pin: true,
+              pinSpacing: true,
+              anticipatePin: 1,
+              scrub: 0.4,
             }
           });
+          tl.fromTo(`.${className}-image`, { x: '40vw', opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }, 0);
+          tl.fromTo(`.${className}-text`, { x: '-25vw', opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }, 0);
         }
       });
 
@@ -833,33 +799,18 @@ function App() {
           }
         );
       } else {
-        ScrollTrigger.create({
-          trigger: cateringHeaderRef.current,
-          start: 'top top',
-          end: '+=100%',
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
-          scrub: 0.5,
-          onUpdate: (self) => {
-            const progress = self.progress;
-            if (progress <= 0.25) {
-              const enterProgress = progress / 0.25;
-              gsap.set('.catering-header-content', {
-                y: 30 * (1 - enterProgress) + 'vh',
-                opacity: enterProgress
-              });
-            } else if (progress <= 0.75) {
-              gsap.set('.catering-header-content', { y: 0, opacity: 1 });
-            } else {
-              const exitProgress = (progress - 0.75) / 0.25;
-              gsap.set('.catering-header-content', {
-                y: -14 * exitProgress + 'vh',
-                opacity: 1 - exitProgress * 0.75
-              });
-            }
+        const cateringTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: cateringHeaderRef.current,
+            start: 'top top',
+            end: '+=80%',
+            pin: true,
+            pinSpacing: true,
+            anticipatePin: 1,
+            scrub: 0.4,
           }
         });
+        cateringTl.fromTo('.catering-header-content', { y: '20vh', opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' });
       }
 
       // Reviews section
@@ -893,32 +844,18 @@ function App() {
           }
         );
       } else {
-        ScrollTrigger.create({
-          trigger: closingRef.current,
-          start: 'top top',
-          end: '+=100%',
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
-          scrub: 0.5,
-          onUpdate: (self) => {
-            const progress = self.progress;
-            if (progress <= 0.25) {
-              const enterProgress = progress / 0.25;
-              gsap.set('.closing-content', {
-                y: 35 * (1 - enterProgress) + 'vh',
-                opacity: enterProgress
-              });
-            } else if (progress <= 0.75) {
-              gsap.set('.closing-content', { y: 0, opacity: 1 });
-            } else {
-              const exitProgress = (progress - 0.75) / 0.25;
-              gsap.set('.closing-content', {
-                opacity: 1 - exitProgress * 0.8
-              });
-            }
+        const closingTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: closingRef.current,
+            start: 'top top',
+            end: '+=80%',
+            pin: true,
+            pinSpacing: true,
+            anticipatePin: 1,
+            scrub: 0.4,
           }
         });
+        closingTl.fromTo('.closing-content', { y: '25vh', opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' });
       }
 
       // Flowing sections animations
@@ -958,11 +895,11 @@ function App() {
   }, []);
 
   const languages: { code: Language; label: string; flag: string }[] = [
-    { code: 'en', label: 'English', flag: '🇬🇧' },
-    { code: 'sk', label: 'Slovenský', flag: '🇸🇰' },
-    { code: 'pl', label: 'Polski', flag: '🇵🇱' },
-    { code: 'hu', label: 'Magyar', flag: '🇭🇺' },
-    { code: 'de', label: 'Deutsch', flag: '🇩🇪' }
+    { code: 'en', label: 'English', flag: '/flag-en.svg' },
+    { code: 'sk', label: 'Slovenský', flag: '/flag-sk.svg' },
+    { code: 'pl', label: 'Polski', flag: '/flag-pl.svg' },
+    { code: 'hu', label: 'Magyar', flag: '/flag-hu.svg' },
+    { code: 'de', label: 'Deutsch', flag: '/flag-de.svg' }
   ];
 
   const nextSlide = () => {
@@ -1029,7 +966,7 @@ function App() {
               onClick={(e) => { e.stopPropagation(); setShowLangDropdown(!showLangDropdown); }}
               className="flex items-center gap-2 px-3 py-2 rounded-lg bg-navy-light/50 border border-gold/30 text-cream hover:border-gold hover:bg-navy-light transition-all"
             >
-              <span className="text-lg">{languages.find(l => l.code === lang)?.flag}</span>
+              <img src={languages.find(l => l.code === lang)?.flag} alt="" className="w-5 h-4 rounded-sm object-cover" />
               <span className="text-sm font-medium hidden sm:inline">{languages.find(l => l.code === lang)?.label}</span>
               <ChevronDown size={14} className={`transition-transform ${showLangDropdown ? 'rotate-180' : ''}`} />
             </button>
@@ -1043,7 +980,7 @@ function App() {
                       lang === l.code ? 'text-gold bg-gold/5' : 'text-cream/80'
                     }`}
                   >
-                    <span className="text-lg">{l.flag}</span>
+                    <img src={l.flag} alt={l.label} className="w-5 h-4 rounded-sm object-cover" />
                     <span className="font-medium">{l.label}</span>
                     {lang === l.code && <div className="ml-auto w-1.5 h-1.5 rounded-full bg-gold" />}
                   </button>
@@ -1103,45 +1040,12 @@ function App() {
       {/* Section 1: Hero */}
       <main id="main-content">
       <section ref={heroRef} className="min-h-screen h-screen bg-navy relative z-10 overflow-hidden" role="banner">
-        <div className="absolute inset-0 wood-texture opacity-15 mix-blend-multiply" />
-        <div className="absolute inset-0 paper-grain" />
-
-        {/* Radial glow behind floating items */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy via-transparent to-navy/80" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
-
-        {/* Floating Deli Items — large, spread out, disappear on scroll */}
-        <div className="absolute inset-0 pointer-events-none hidden md:block">
-          {[
-            { src: '/deli-pierogi.png', x: '6%',  y: '20%', size: 160, tx: -500, ty: -350, rot: -55, delay: 0 },
-            { src: '/deli-cheese.png',  x: '88%', y: '14%', size: 140, tx: 450,  ty: -300, rot: 40,  delay: 0.4 },
-            { src: '/deli-sausage.png', x: '4%',  y: '60%', size: 130, tx: -550, ty: 150,  rot: -35, delay: 0.9 },
-            { src: '/deli-bread.png',   x: '92%', y: '55%', size: 150, tx: 500,  ty: 120,  rot: 30,  delay: 0.6 },
-            { src: '/deli-salami.png',  x: '15%', y: '85%', size: 120, tx: -400, ty: 400,  rot: -60, delay: 1.1 },
-            { src: '/deli-pepper.png',  x: '82%', y: '82%', size: 110, tx: 380,  ty: 350,  rot: 45,  delay: 0.3 },
-            { src: '/deli-dill.png',    x: '50%', y: '6%',  size: 100, tx: 0,    ty: -500, rot: 25,  delay: 0.7 },
-            { src: '/deli-mustard.png', x: '42%', y: '90%', size: 100, tx: -120, ty: 450,  rot: -20, delay: 1.3 },
-          ].map((item, i) => (
-            <img
-              key={i}
-              src={item.src}
-              alt=""
-              data-tx={item.tx}
-              data-ty={item.ty}
-              data-rot={item.rot}
-              className="hero-float-item absolute opacity-50 drop-shadow-[0_12px_32px_rgba(0,0,0,0.5)]"
-              style={{
-                left: item.x,
-                top: item.y,
-                width: item.size,
-                height: 'auto',
-                transform: 'translate(-50%, -50%)',
-                animation: `float ${4 + i * 0.4}s ease-in-out ${item.delay}s infinite`,
-                filter: 'drop-shadow(0 6px 24px rgba(255,215,0,0.12))',
-              }}
-            />
-          ))}
+        {/* Background deli image with low opacity */}
+        <div className="absolute inset-0">
+          <img src="/hero-bg-deli.png" alt="" className="w-full h-full object-cover opacity-20" />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/30 to-navy/80" />
+        <div className="absolute inset-0 paper-grain" />
 
         <div className="relative h-full flex flex-col justify-center items-center px-4 z-10">
           <div className="text-center max-w-4xl mx-auto">
@@ -1833,13 +1737,10 @@ function App() {
       </main>
 
       {/* Premium Footer */}
-      <footer className="relative z-[120] overflow-hidden">
-        {/* Full-size wood texture background (no tiling) */}
-        <div className="absolute inset-0 wood-texture-cover" />
-        <div className="absolute inset-0 bg-[#1a0f08]/82" />
+      <footer className="relative z-[120] bg-navy-dark overflow-hidden">
         <div className="absolute inset-0 paper-grain" />
         {/* Gold top border */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main footer content */}
