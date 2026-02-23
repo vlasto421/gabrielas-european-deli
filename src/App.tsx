@@ -6,6 +6,7 @@ import {
   ChevronDown, Star, Download, Menu, X,
   ChevronRight, Mail, ChevronLeft, Quote
 } from 'lucide-react';
+import { ConnoisseurStackInteractor } from '@/components/ui/connoisseur-stack-interactor';
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -29,6 +30,15 @@ const translations = {
       description2: 'From our hand-folded pierogi to our carefully curated selection of imported cheeses and cured meats, every item in our deli tells a story of tradition, quality, and love for European culinary heritage.',
       location: 'Located at 1825 Hooper Avenue',
       slides: ['Our Charming Storefront', 'Inside Our Deli', 'Outdoor Seating']
+    },
+    featured: {
+      title: 'Our Specialties',
+      subtitle: 'Explore our most beloved European delicacies',
+      items: [
+        { num: '01', name: 'Handmade Pierogi' },
+        { num: '02', name: 'Imported Cheeses' },
+        { num: '03', name: 'European Sausages' }
+      ]
     },
     features: {
       pierogi: {
@@ -144,6 +154,15 @@ const translations = {
       location: 'Nachádzame sa na 1825 Hooper Avenue',
       slides: ['Naša Okúzľujúca Predajňa', 'Vo vnútri Nášho Deli', ' Vonkajšie Sedenie']
     },
+    featured: {
+      title: 'Naše Špeciality',
+      subtitle: 'Objavte naše najobľúbenejšie európske lahôdky',
+      items: [
+        { num: '01', name: 'Ručné Pierogi' },
+        { num: '02', name: 'Importované Syry' },
+        { num: '03', name: 'Európske Klobásy' }
+      ]
+    },
     features: {
       pierogi: {
         eyebrow: 'Obľúbené',
@@ -257,6 +276,15 @@ const translations = {
       description2: 'Od naszych ręcznie lepionych pierogi po nasz starannie dobrany wybór importowanych serów i wędlin—każdy produkt w naszym deli opowiada historię tradycji, jakości i miłości do europejskiego dziedzictwa kulinarnego.',
       location: 'Znajdujemy się przy 1825 Hooper Avenue',
       slides: ['Nasz Urokliwy Sklep', 'Wewnątrz Naszego Deli', 'Siedzenie na Zewnątrz']
+    },
+    featured: {
+      title: 'Nasze Specjały',
+      subtitle: 'Odkryj nasze najbardziej ukochane europejskie przysmaki',
+      items: [
+        { num: '01', name: 'Ręczne Pierogi' },
+        { num: '02', name: 'Importowane Sery' },
+        { num: '03', name: 'Europejskie Kiełbasy' }
+      ]
     },
     features: {
       pierogi: {
@@ -372,6 +400,15 @@ const translations = {
       location: 'Címünk: 1825 Hooper Avenue',
       slides: ['Bájos Üzletünk', 'Deli-nk Belseje', 'Kültéri Ülőhely']
     },
+    featured: {
+      title: 'Különlegességeink',
+      subtitle: 'Fedezze fel legkedveltebb európai finomságainkat',
+      items: [
+        { num: '01', name: 'Kézműves Pierogi' },
+        { num: '02', name: 'Importált Sajtok' },
+        { num: '03', name: 'Európai Kolbászok' }
+      ]
+    },
     features: {
       pierogi: {
         eyebrow: 'Kedvenc',
@@ -485,6 +522,15 @@ const translations = {
       description2: 'Von unseren handgefalteten Pierogi bis hin zu unserer sorgfältig kuratierten Auswahl an importierten Käsesorten und Wurstwaren—jedes Produkt in unserem Deli erzählt eine Geschichte von Tradition, Qualität und Liebe zum europäischen kulinarischen Erbe.',
       location: 'Wir befinden uns an der 1825 Hooper Avenue',
       slides: ['Unser Charmantes Geschäft', 'Innen in Unserem Deli', 'Sitzplätze im Freien']
+    },
+    featured: {
+      title: 'Unsere Spezialitäten',
+      subtitle: 'Entdecken Sie unsere beliebtesten europäischen Delikatessen',
+      items: [
+        { num: '01', name: 'Handgemachte Pierogi' },
+        { num: '02', name: 'Importierte Käse' },
+        { num: '03', name: 'Europäische Würste' }
+      ]
     },
     features: {
       pierogi: {
@@ -1147,6 +1193,32 @@ function App() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Featured Products Showcase */}
+      <section className="relative z-25 bg-navy overflow-hidden">
+        <div className="absolute inset-0 wood-texture opacity-10 mix-blend-multiply" />
+        <div className="absolute inset-0 paper-grain" />
+
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center pt-16 sm:pt-24 px-4">
+            <span className="eyebrow mb-4 block">{t.nav.menu}</span>
+            <h2 className="font-playfair text-cream text-[clamp(32px,5vw,56px)] font-bold mb-4">
+              {t.featured.title}
+            </h2>
+            <p className="text-cream/60 text-lg max-w-xl mx-auto">
+              {t.featured.subtitle}
+            </p>
+          </div>
+
+          <ConnoisseurStackInteractor
+            items={t.featured.items.map((item: { num: string; name: string }, i: number) => ({
+              ...item,
+              clipId: ['clip-original', 'clip-hexagons', 'clip-pixels'][i],
+              image: ['/specialty-pierogi.jpg', '/specialty-cheeses.jpg', '/specialty-sausages.jpg'][i]
+            }))}
+          />
         </div>
       </section>
 
