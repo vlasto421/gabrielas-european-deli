@@ -921,25 +921,41 @@ function App() {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         navScrolled ? 'bg-navy/95 backdrop-blur-md shadow-xl' : 'bg-transparent'
       }`}>
-        {/* Top Bar */}
-        <div className={`transition-all duration-300 ${navScrolled ? 'bg-navy-dark' : 'bg-navy/50'}`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex justify-between items-center">
-            <div className="flex items-center gap-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" 
-                 className="text-cream/70 hover:text-gold transition-colors">
-                <Facebook size={18} />
+        {/* Top Bar - White - collapses on scroll */}
+        <div className={`bg-white overflow-hidden transition-all duration-300 ${navScrolled ? 'max-h-0 opacity-0' : 'max-h-12 opacity-100'}`}>
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-1.5 flex justify-between items-center min-h-[36px]">
+            {/* Left: Social Media */}
+            <div className="flex items-center gap-1 sm:gap-3">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                 className="text-navy/50 hover:text-[#1877F2] transition-colors p-1.5"
+                 aria-label="Facebook">
+                <Facebook size={15} />
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-                 className="text-cream/70 hover:text-gold transition-colors">
-                <Instagram size={18} />
+                 className="text-navy/50 hover:text-[#E4405F] transition-colors p-1.5"
+                 aria-label="Instagram">
+                <Instagram size={15} />
               </a>
             </div>
-            <div className="flex items-center gap-4">
-              <a href="tel:732-279-3999" className="flex items-center gap-2 text-gold hover:text-gold-light transition-colors">
-                <Phone size={16} />
-                <span className="text-sm font-semibold hidden sm:inline">732-279-3999</span>
-              </a>
-            </div>
+
+            {/* Center: Phone */}
+            <a href="tel:732-279-3999" className="flex items-center gap-1.5 text-navy hover:text-gold-dark transition-colors">
+              <Phone size={13} className="text-gold-dark" />
+              <span className="text-xs sm:text-sm font-semibold tracking-wide">732-279-3999</span>
+            </a>
+
+            {/* Right: Location shortcut → opens Google Maps */}
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=1825+Hooper+Avenue+Toms+River+NJ+08753"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 sm:gap-1.5 text-navy/50 hover:text-gold-dark transition-colors p-1.5"
+              aria-label="Get directions to Gabriela's European Deli"
+            >
+              <MapPin size={13} className="text-gold-dark flex-shrink-0" />
+              <span className="text-xs font-medium hidden sm:inline">Toms River, NJ</span>
+              <span className="text-xs font-medium sm:hidden">Map</span>
+            </a>
           </div>
         </div>
         
