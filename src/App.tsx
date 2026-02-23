@@ -700,7 +700,10 @@ function App() {
 
   // GSAP Animations
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    // Small delay to let layout settle before creating ScrollTriggers
+    let ctx: gsap.Context;
+    const raf = requestAnimationFrame(() => {
+    ctx = gsap.context(() => {
       // Hero entrance animation
       const heroTl = gsap.timeline();
       heroTl
@@ -710,17 +713,22 @@ function App() {
         .fromTo('.hero-tagline', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.3')
         .fromTo('.hero-cta', { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out' }, '-=0.2');
 
-      // Floating deli items parallax
-      gsap.utils.toArray<HTMLElement>('.floating-item').forEach((item) => {
-        const speed = parseFloat(item.dataset.speed || '0.5');
+      // Hero floating deli items — scatter outward on scroll
+      gsap.utils.toArray<HTMLElement>('.hero-float-item').forEach((item) => {
+        const tx = parseFloat(item.dataset.tx || '0');
+        const ty = parseFloat(item.dataset.ty || '0');
+        const rot = parseFloat(item.dataset.rot || '0');
         gsap.to(item, {
-          y: () => window.innerHeight * speed * 0.3,
-          ease: 'none',
+          x: tx,
+          y: ty,
+          rotation: rot,
+          opacity: 0,
+          ease: 'power2.in',
           scrollTrigger: {
-            trigger: 'body',
+            trigger: heroRef.current,
             start: 'top top',
-            end: 'bottom bottom',
-            scrub: 1
+            end: 'bottom top',
+            scrub: 0.8,
           }
         });
       });
@@ -768,7 +776,6 @@ function App() {
 
       featureSections.forEach(({ ref, class: className }) => {
         if (mobile) {
-          // Simple fade-in on mobile instead of pinning
           gsap.fromTo(`.${className}-text`,
             { opacity: 0, y: 30 },
             {
@@ -784,25 +791,27 @@ function App() {
           ScrollTrigger.create({
             trigger: ref.current,
             start: 'top top',
-            end: '+=130%',
+            end: '+=100%',
             pin: true,
-            scrub: 0.6,
+            pinSpacing: true,
+            anticipatePin: 1,
+            scrub: 0.5,
             onUpdate: (self) => {
               const progress = self.progress;
               const image = `.${className}-image`;
               const text = `.${className}-text`;
 
-              if (progress <= 0.3) {
-                const enterProgress = progress / 0.3;
-                gsap.set(image, { x: 60 * (1 - enterProgress) + 'vw', opacity: enterProgress });
-                gsap.set(text, { x: -40 * (1 - enterProgress) + 'vw', opacity: enterProgress });
-              } else if (progress <= 0.7) {
+              if (progress <= 0.25) {
+                const enterProgress = progress / 0.25;
+                gsap.set(image, { x: 50 * (1 - enterProgress) + 'vw', opacity: enterProgress });
+                gsap.set(text, { x: -30 * (1 - enterProgress) + 'vw', opacity: enterProgress });
+              } else if (progress <= 0.75) {
                 gsap.set(image, { x: 0, opacity: 1 });
                 gsap.set(text, { x: 0, opacity: 1 });
               } else {
-                const exitProgress = (progress - 0.7) / 0.3;
-                gsap.set(image, { x: -28 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.7 });
-                gsap.set(text, { x: 18 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.7 });
+                const exitProgress = (progress - 0.75) / 0.25;
+                gsap.set(image, { x: -20 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.8 });
+                gsap.set(text, { x: 14 * exitProgress + 'vw', opacity: 1 - exitProgress * 0.8 });
               }
             }
           });
@@ -826,23 +835,25 @@ function App() {
         ScrollTrigger.create({
           trigger: cateringHeaderRef.current,
           start: 'top top',
-          end: '+=130%',
+          end: '+=100%',
           pin: true,
-          scrub: 0.6,
+          pinSpacing: true,
+          anticipatePin: 1,
+          scrub: 0.5,
           onUpdate: (self) => {
             const progress = self.progress;
-            if (progress <= 0.3) {
-              const enterProgress = progress / 0.3;
+            if (progress <= 0.25) {
+              const enterProgress = progress / 0.25;
               gsap.set('.catering-header-content', {
-                y: 40 * (1 - enterProgress) + 'vh',
+                y: 30 * (1 - enterProgress) + 'vh',
                 opacity: enterProgress
               });
-            } else if (progress <= 0.7) {
+            } else if (progress <= 0.75) {
               gsap.set('.catering-header-content', { y: 0, opacity: 1 });
             } else {
-              const exitProgress = (progress - 0.7) / 0.3;
+              const exitProgress = (progress - 0.75) / 0.25;
               gsap.set('.catering-header-content', {
-                y: -18 * exitProgress + 'vh',
+                y: -14 * exitProgress + 'vh',
                 opacity: 1 - exitProgress * 0.75
               });
             }
@@ -884,23 +895,25 @@ function App() {
         ScrollTrigger.create({
           trigger: closingRef.current,
           start: 'top top',
-          end: '+=130%',
+          end: '+=100%',
           pin: true,
-          scrub: 0.6,
+          pinSpacing: true,
+          anticipatePin: 1,
+          scrub: 0.5,
           onUpdate: (self) => {
             const progress = self.progress;
-            if (progress <= 0.3) {
-              const enterProgress = progress / 0.3;
+            if (progress <= 0.25) {
+              const enterProgress = progress / 0.25;
               gsap.set('.closing-content', {
-                y: 45 * (1 - enterProgress) + 'vh',
+                y: 35 * (1 - enterProgress) + 'vh',
                 opacity: enterProgress
               });
-            } else if (progress <= 0.7) {
+            } else if (progress <= 0.75) {
               gsap.set('.closing-content', { y: 0, opacity: 1 });
             } else {
-              const exitProgress = (progress - 0.7) / 0.3;
+              const exitProgress = (progress - 0.75) / 0.25;
               gsap.set('.closing-content', {
-                opacity: 1 - exitProgress * 0.7
+                opacity: 1 - exitProgress * 0.8
               });
             }
           }
@@ -909,7 +922,7 @@ function App() {
 
       // Flowing sections animations
       gsap.utils.toArray<HTMLElement>('.menu-category').forEach((category) => {
-        gsap.fromTo(category, 
+        gsap.fromTo(category,
           { y: 30, opacity: 0 },
           {
             y: 0,
@@ -925,9 +938,17 @@ function App() {
         );
       });
 
+      // Refresh after all triggers are set up
+      ScrollTrigger.refresh();
+
     });
 
-    return () => ctx.revert();
+    });
+
+    return () => {
+      cancelAnimationFrame(raf);
+      ctx?.revert();
+    };
   }, []);
 
   const scrollToSection = useCallback((ref: React.RefObject<HTMLDivElement | null>) => {
@@ -1080,14 +1101,48 @@ function App() {
 
       {/* Section 1: Hero */}
       <main id="main-content">
-      <section ref={heroRef} className="section-pinned bg-navy relative z-10" role="banner">
+      <section ref={heroRef} className="min-h-screen h-screen bg-navy relative z-10 overflow-hidden" role="banner">
         <div className="absolute inset-0 wood-texture opacity-15 mix-blend-multiply" />
         <div className="absolute inset-0 paper-grain" />
-        
-        {/* Subtle gradient overlay */}
+
+        {/* Radial glow behind floating items */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy via-transparent to-navy/80" />
-        
-        <div className="relative h-full flex flex-col justify-center items-center px-4">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
+
+        {/* Floating 3D Deli Items — scatter outward on scroll */}
+        <div className="absolute inset-0 pointer-events-none hidden md:block">
+          {[
+            { src: '/deli-pierogi.png', x: '12%', y: '18%', size: 90, tx: -300, ty: -200, rot: -45, delay: 0 },
+            { src: '/deli-cheese.png', x: '78%', y: '15%', size: 80, tx: 280, ty: -180, rot: 35, delay: 0.5 },
+            { src: '/deli-sausage.png', x: '8%', y: '55%', size: 75, tx: -350, ty: 100, rot: -30, delay: 1 },
+            { src: '/deli-bread.png', x: '85%', y: '50%', size: 85, tx: 320, ty: 80, rot: 25, delay: 0.8 },
+            { src: '/deli-salami.png', x: '20%', y: '78%', size: 65, tx: -250, ty: 250, rot: -50, delay: 1.2 },
+            { src: '/deli-pepper.png', x: '75%', y: '80%', size: 55, tx: 220, ty: 200, rot: 40, delay: 0.3 },
+            { src: '/deli-dill.png', x: '50%', y: '12%', size: 50, tx: 0, ty: -300, rot: 20, delay: 0.7 },
+            { src: '/deli-mustard.png', x: '45%', y: '82%', size: 55, tx: -80, ty: 280, rot: -15, delay: 1.5 },
+          ].map((item, i) => (
+            <img
+              key={i}
+              src={item.src}
+              alt=""
+              data-tx={item.tx}
+              data-ty={item.ty}
+              data-rot={item.rot}
+              className="hero-float-item absolute opacity-40 drop-shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:opacity-60 transition-opacity"
+              style={{
+                left: item.x,
+                top: item.y,
+                width: item.size,
+                height: 'auto',
+                transform: 'translate(-50%, -50%)',
+                animation: `float ${4 + i * 0.3}s ease-in-out ${item.delay}s infinite`,
+                filter: 'drop-shadow(0 4px 20px rgba(255,215,0,0.15))',
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="relative h-full flex flex-col justify-center items-center px-4 z-10">
           <div className="text-center max-w-4xl mx-auto">
             <p className="hero-subheadline text-gold text-sm sm:text-base tracking-[0.3em] uppercase mb-4 font-medium">
               {t.hero.subheadline}
@@ -1105,7 +1160,7 @@ function App() {
               {t.hero.cta}
             </button>
           </div>
-          
+
           {/* Scroll Indicator */}
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
             <span className="text-cream/40 text-xs tracking-widest uppercase">{t.hero.location}</span>
@@ -1698,58 +1753,91 @@ function App() {
 
       </main>
 
-      {/* Footer */}
-      <footer className="relative z-[120] bg-navy-dark py-8 border-t border-gold/20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-3">
-              <img src="/logo.png" alt="Logo" className="h-8 w-auto" />
+      {/* Enhanced Footer */}
+      <footer className="relative z-[120] bg-navy-dark border-t border-gold/20">
+        {/* Decorative top edge */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+            {/* Brand Column */}
+            <div className="flex flex-col items-center md:items-start">
+              <img src="/logo.png" alt="Gabriela's European Deli" className="h-12 w-auto mb-4" />
+              <p className="text-cream/60 text-sm leading-relaxed text-center md:text-left max-w-xs">
+                Authentic European flavors in Toms River, NJ. Serving handmade pierogi, imported cheeses, and traditional dishes since 2009.
+              </p>
+              <div className="flex items-center gap-4 mt-6">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                   className="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center text-cream/60 hover:text-gold hover:bg-gold/20 hover:border-gold/40 transition-all">
+                  <Facebook size={18} />
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                   className="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center text-cream/60 hover:text-gold hover:bg-gold/20 hover:border-gold/40 transition-all">
+                  <Instagram size={18} />
+                </a>
+              </div>
             </div>
-            <p className="text-cream/50 text-sm text-center">
-              {t.footer.copyright}
-            </p>
-            <div className="flex items-center gap-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" 
-                 className="text-cream/50 hover:text-gold transition-colors">
-                <Facebook size={20} />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-                 className="text-cream/50 hover:text-gold transition-colors">
-                <Instagram size={20} />
-              </a>
+
+            {/* Quick Links */}
+            <div className="flex flex-col items-center md:items-start">
+              <h4 className="font-playfair text-cream text-lg font-bold mb-4">Quick Links</h4>
+              <nav className="flex flex-col gap-3">
+                <button onClick={() => scrollToSection(aboutRef)} className="text-cream/60 hover:text-gold transition-colors text-sm text-center md:text-left">
+                  {t.nav.about}
+                </button>
+                <button onClick={() => scrollToSection(menuRef)} className="text-cream/60 hover:text-gold transition-colors text-sm text-center md:text-left">
+                  {t.nav.menu}
+                </button>
+                <button onClick={() => scrollToSection(reviewsRef)} className="text-cream/60 hover:text-gold transition-colors text-sm text-center md:text-left">
+                  {t.nav.reviews}
+                </button>
+                <button onClick={() => scrollToSection(contactRef)} className="text-cream/60 hover:text-gold transition-colors text-sm text-center md:text-left">
+                  {t.nav.catering}
+                </button>
+              </nav>
+            </div>
+
+            {/* Contact Info */}
+            <div className="flex flex-col items-center md:items-start">
+              <h4 className="font-playfair text-cream text-lg font-bold mb-4">Visit Us</h4>
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <MapPin className="text-gold flex-shrink-0" size={16} />
+                  <span className="text-cream/60 text-sm">{t.contact.info.address}</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Phone className="text-gold flex-shrink-0" size={16} />
+                  <a href={`tel:${t.contact.info.phone}`} className="text-cream/60 hover:text-gold transition-colors text-sm">
+                    {t.contact.info.phone}
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="text-gold flex-shrink-0" size={16} />
+                  <a href={`mailto:${t.contact.info.email}`} className="text-cream/60 hover:text-gold transition-colors text-sm">
+                    {t.contact.info.email}
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Clock className="text-gold flex-shrink-0" size={16} />
+                  <span className="text-cream/60 text-sm">{t.contact.info.hours}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </footer>
 
-      {/* Floating Deli Items with Parallax */}
-      <div className="fixed inset-0 pointer-events-none z-[5] overflow-hidden hidden lg:block">
-        {[
-          { src: '/deli-sausage.png', left: '3%', top: '15%', size: 70, speed: '0.3' },
-          { src: '/deli-cheese.png', right: '5%', top: '25%', size: 60, speed: '0.4' },
-          { src: '/deli-bread.png', left: '5%', top: '45%', size: 65, speed: '0.35' },
-          { src: '/deli-pepper.png', right: '3%', top: '55%', size: 50, speed: '0.45' },
-          { src: '/deli-pierogi.png', left: '8%', top: '70%', size: 55, speed: '0.25' },
-          { src: '/deli-dill.png', right: '8%', top: '75%', size: 45, speed: '0.5' },
-          { src: '/deli-mustard.png', left: '2%', top: '85%', size: 40, speed: '0.3' },
-          { src: '/deli-salami.png', right: '6%', top: '88%', size: 55, speed: '0.4' },
-        ].map((item, i) => (
-          <img
-            key={i}
-            src={item.src}
-            alt=""
-            data-speed={item.speed}
-            className="floating-item absolute opacity-30"
-            style={{
-              left: item.left,
-              right: item.right,
-              top: item.top,
-              width: item.size,
-              height: 'auto',
-            }}
-          />
-        ))}
-      </div>
+        {/* Bottom Bar */}
+        <div className="border-t border-gold/10">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <p className="text-cream/40 text-xs text-center">
+              {t.footer.copyright}
+            </p>
+            <p className="text-cream/30 text-xs">
+              1825 Hooper Avenue, Toms River, NJ 08753
+            </p>
+          </div>
+        </div>
+      </footer>
 
       {/* Mobile Call Button */}
       <a 

@@ -1,11 +1,6 @@
 /* Additional App Styles - Polished & Mobile Optimized */
 
-/* Smooth scroll for the whole page */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Ensure pinned sections work correctly */
+/* Pinned sections — let GSAP handle scroll behavior, no CSS smooth scroll */
 .section-pinned {
   min-height: 100vh;
   min-height: 100dvh;

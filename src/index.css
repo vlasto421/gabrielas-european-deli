@@ -43,7 +43,7 @@
   }
   
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth removed — conflicts with GSAP ScrollTrigger pin calculations */
   }
   
   body {
@@ -86,7 +86,7 @@
   }
   
   .section-pinned {
-    @apply w-screen h-screen relative overflow-hidden;
+    @apply w-full h-screen relative overflow-hidden;
   }
   
   .star-row {
