@@ -423,3 +423,72 @@ iframe {
     padding-top: env(safe-area-inset-top);
   }
 }
+
+/* =====================
+   Photo Gallery Section
+   ===================== */
+
+/* Category filter pill buttons */
+.gallery-cat-btn {
+  white-space: nowrap;
+}
+
+/* Main image container */
+.gallery-main {
+  position: relative;
+  background: #0a1930;
+  min-height: 220px;
+}
+
+/* Nav buttons — subtle pulse on hover */
+.gallery-nav-btn {
+  transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.gallery-nav-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.35);
+}
+
+/* Thumbnail strip — hide scrollbar but keep functionality */
+.gallery-thumbnails-wrapper {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  scroll-behavior: smooth;
+}
+.gallery-thumbnails-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Thumbnail buttons */
+.gallery-thumb {
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, opacity 0.2s;
+  cursor: pointer;
+}
+.gallery-thumb:hover {
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+}
+
+/* Transition override for image fade */
+.duration-600 {
+  transition-duration: 600ms;
+}
+
+/* Mobile: slightly smaller thumbnails, full-bleed main image */
+@media (max-width: 640px) {
+  .gallery-main {
+    border-radius: 12px;
+    aspect-ratio: 4/3 !important;
+  }
+}
+
+/* Touch device: disable hover transforms on gallery */
+@media (hover: none) {
+  .gallery-thumb:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .gallery-nav-btn:hover {
+    transform: translateY(-50%);
+    box-shadow: none;
+  }
+}
