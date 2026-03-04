@@ -26,7 +26,7 @@ const translations = {
     about: {
       title: 'Our Story',
       subtitle: 'A Taste of Europe in New Jersey',
-      description: 'For over 15 years, Gabriela\'s European Deli has been bringing authentic European flavors to Toms River. What started as a small family dream has grown into a beloved local institution, serving generations of families with recipes passed down through the ages.',
+      description: 'For over 6 years, Gabriela\'s European Deli has been bringing authentic European flavors to Toms River. What started as a small family dream has grown into a beloved local institution, serving generations of families with recipes passed down through the ages.',
       description2: 'From our hand-folded pierogi to our carefully curated selection of imported cheeses and cured meats, every item in our deli tells a story of tradition, quality, and love for European culinary heritage.',
       location: 'Located at 1825 Hooper Avenue',
       slides: ['European Deli', 'Our Deli Counter', 'Homemade Street Food', 'Daily Specials', 'Our Heritage']
@@ -128,8 +128,8 @@ const translations = {
       info: {
         address: '1825 Hooper Avenue, Toms River, NJ 08753',
         phone: '732-279-3999',
-        email: 'gabrielasdeli@gmail.com',
-        hours: 'Hours: Tue–Sat 9am–6pm | Sun 10am–4pm'
+        email: 'gabrielasdeli@yahoo.com',
+        hours: 'Hours: Tue–Sat 9:30am–5pm | Sun 10am–3pm'
       }
     },
     footer: {
@@ -149,7 +149,7 @@ const translations = {
     about: {
       title: 'Náš Príbeh',
       subtitle: 'Chuť Európy v New Jersey',
-      description: 'Už viac ako 15 rokov prináša Gabriela\'s European Deli autentické európske chute do Toms River. To, čo začalo ako malý rodinný sen, sa rozrástlo na obľúbenú miestnu inštitúciu, ktorá obsluhuje generácie rodín receptami odovzdávanými z pokolenia na pokolenie.',
+      description: 'Už viac ako 6 rokov prináša Gabriela\'s European Deli autentické európske chute do Toms River. To, čo začalo ako malý rodinný sen, sa rozrástlo na obľúbenú miestnu inštitúciu, ktorá obsluhuje generácie rodín receptami odovzdávanými z pokolenia na pokolenie.',
       description2: 'Od našich ručne skladaných pierogi po náš starostlivo vyberaný výber importovaných syrov a údenín—každá položka v našom deli rozpráva príbeh tradície, kvality a lásky k európskemu kulinárskemu dedičstvu.',
       location: 'Nachádzame sa na 1825 Hooper Avenue',
       slides: ['Európske Deli', 'Náš Pult Deli', 'Domáce Pouličné Jedlo', 'Denné Špeciality', 'Naše Dedičstvo']
@@ -251,8 +251,8 @@ const translations = {
       info: {
         address: '1825 Hooper Avenue, Toms River, NJ 08753',
         phone: '732-279-3999',
-        email: 'gabrielasdeli@gmail.com',
-        hours: 'Otváracie hodiny: Ut–So 9:00–18:00 | Ne 10:00–16:00'
+        email: 'gabrielasdeli@yahoo.com',
+        hours: 'Otváracie hodiny: Ut–So 9:30–17:00 | Ne 10:00–15:00'
       }
     },
     footer: {
@@ -272,7 +272,7 @@ const translations = {
     about: {
       title: 'Nasza Historia',
       subtitle: 'Smak Europy w New Jersey',
-      description: 'Od ponad 15 lat Gabriela\'s European Deli przywozi autentyczne europejskie smaki do Toms River. To, co zaczęło się jako mały rodzinny sen, rozrosło się w ukochaną lokalną instytucję, obsługującą pokolenia rodzin przepisami przekazywanymi z pokolenia na pokolenie.',
+      description: 'Od ponad 6 lat Gabriela\'s European Deli przywozi autentyczne europejskie smaki do Toms River. To, co zaczęło się jako mały rodzinny sen, rozrosło się w ukochaną lokalną instytucję, obsługującą pokolenia rodzin przepisami przekazywanymi z pokolenia na pokolenie.',
       description2: 'Od naszych ręcznie lepionych pierogi po nasz starannie dobrany wybór importowanych serów i wędlin—każdy produkt w naszym deli opowiada historię tradycji, jakości i miłości do europejskiego dziedzictwa kulinarnego.',
       location: 'Znajdujemy się przy 1825 Hooper Avenue',
       slides: ['Europejskie Deli', 'Nasz Sklep Deli', 'Domowe Jedzenie Uliczne', 'Codzienne Specjały', 'Nasze Dziedzictwo']
@@ -374,8 +374,8 @@ const translations = {
       info: {
         address: '1825 Hooper Avenue, Toms River, NJ 08753',
         phone: '732-279-3999',
-        email: 'gabrielasdeli@gmail.com',
-        hours: 'Godziny: Wt–So 9:00–18:00 | Nd 10:00–16:00'
+        email: 'gabrielasdeli@yahoo.com',
+        hours: 'Godziny: Wt–So 9:30–17:00 | Nd 10:00–15:00'
       }
     },
     footer: {
@@ -395,7 +395,7 @@ const translations = {
     about: {
       title: 'Történetünk',
       subtitle: 'Európa Íze New Jersey-ben',
-      description: 'Több mint 15 éve a Gabriela\'s European Deli autentikus európai ízeket hoz Toms Riverbe. Amit kis családi álomként kezdődött, az egy kedvelt helyi intézménnyé nőtt, amely generációk óta szolgálja ki a családokat nemzedékről nemzedékre átadott receptekkel.',
+      description: 'Több mint 6 éve a Gabriela\'s European Deli autentikus európai ízeket hoz Toms Riverbe. Amit kis családi álomként kezdődött, az egy kedvelt helyi intézménnyé nőtt, amely generációk óta szolgálja ki a családokat nemzedékről nemzedékre átadott receptekkel.',
       description2: 'A kézzel hajtogatott pierogi-tól kezdve a gondosan összeválogatott importált sajtok és felvágottak választékáig—minden termékünk egy történetet mesél el a hagyományról, a minőségről és az európai kulináris örökség szeretetéről.',
       location: 'Címünk: 1825 Hooper Avenue',
       slides: ['Európai Deli', 'Deli-nk Pultja', 'Házi Utcai Étel', 'Napi Specialitások', 'Örökségünk']
@@ -497,8 +497,8 @@ const translations = {
       info: {
         address: '1825 Hooper Avenue, Toms River, NJ 08753',
         phone: '732-279-3999',
-        email: 'gabrielasdeli@gmail.com',
-        hours: 'Nyitvatartás: K–Szo 9:00–18:00 | V 10:00–16:00'
+        email: 'gabrielasdeli@yahoo.com',
+        hours: 'Nyitvatartás: K–Szo 9:30–17:00 | V 10:00–15:00'
       }
     },
     footer: {
@@ -518,7 +518,7 @@ const translations = {
     about: {
       title: 'Unsere Geschichte',
       subtitle: 'Ein Geschmack von Europa in New Jersey',
-      description: 'Seit über 15 Jahren bringt Gabriela\'s European Deli authentische europäische Aromen nach Toms River. Was als kleiner Familientraum begann, ist zu einer beliebten lokalen Institution geworden, die Generationen von Familien mit Rezepten bedient, die von Generation zu Generation weitergegeben werden.',
+      description: 'Seit über 6 Jahren bringt Gabriela\'s European Deli authentische europäische Aromen nach Toms River. Was als kleiner Familientraum begann, ist zu einer beliebten lokalen Institution geworden, die Generationen von Familien mit Rezepten bedient, die von Generation zu Generation weitergegeben werden.',
       description2: 'Von unseren handgefalteten Pierogi bis hin zu unserer sorgfältig kuratierten Auswahl an importierten Käsesorten und Wurstwaren—jedes Produkt in unserem Deli erzählt eine Geschichte von Tradition, Qualität und Liebe zum europäischen kulinarischen Erbe.',
       location: 'Wir befinden uns an der 1825 Hooper Avenue',
       slides: ['Europäisches Deli', 'Unsere Deli-Theke', 'Hausgemachtes Straßenessen', 'Tagesangebote', 'Unser Erbe']
@@ -620,8 +620,8 @@ const translations = {
       info: {
         address: '1825 Hooper Avenue, Toms River, NJ 08753',
         phone: '732-279-3999',
-        email: 'gabrielasdeli@gmail.com',
-        hours: 'Öffnungszeiten: Di–Sa 9:00–18:00 | So 10:00–16:00'
+        email: 'gabrielasdeli@yahoo.com',
+        hours: 'Öffnungszeiten: Di–Sa 9:30–17:00 | So 10:00–15:00'
       }
     },
     footer: {
