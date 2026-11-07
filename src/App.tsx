@@ -3,8 +3,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   Phone, MapPin, Clock, Facebook, Instagram,
-  ChevronDown, Star, Menu, X, Eye,
-  ChevronRight, Mail, ChevronLeft, Users
+  ChevronDown, Star, Menu, X,
+  ChevronRight, Mail, ChevronLeft
 } from 'lucide-react';
 import { ConnoisseurStackInteractor } from '@/components/ui/connoisseur-stack-interactor';
 import './App.css';
@@ -26,10 +26,10 @@ const translations = {
     about: {
       title: 'Our Story',
       subtitle: 'A Taste of Europe in New Jersey',
-      description: 'For over 15 years, Gabriela\'s European Deli has been bringing authentic European flavors to Toms River. What started as a small family dream has grown into a beloved local institution, serving generations of families with recipes passed down through the ages.',
+      description: 'For over 6 years, Gabriela\'s European Deli has been bringing authentic European flavors to Toms River. What started as a small family dream has grown into a beloved local institution, serving generations of families with recipes passed down through the ages.',
       description2: 'From our hand-folded pierogi to our carefully curated selection of imported cheeses and cured meats, every item in our deli tells a story of tradition, quality, and love for European culinary heritage.',
       location: 'Located at 1825 Hooper Avenue',
-      slides: ['Our Charming Storefront', 'Inside Our Deli', 'Outdoor Seating']
+      slides: ['European Deli', 'Our Deli Counter', 'Homemade Street Food', 'Daily Specials', 'Our Heritage']
     },
     featured: {
       title: 'Our Specialties',
@@ -128,8 +128,8 @@ const translations = {
       info: {
         address: '1825 Hooper Avenue, Toms River, NJ 08753',
         phone: '732-279-3999',
-        email: 'hello@gabrielasdeli.com',
-        hours: 'Hours: Tue–Sat 9am–6pm | Sun 10am–4pm'
+        email: 'gabrielasdeli@yahoo.com',
+        hours: 'Hours: Tue–Sat 9:30am–5pm | Sun 10am–3pm'
       }
     },
     footer: {
@@ -149,10 +149,10 @@ const translations = {
     about: {
       title: 'Náš Príbeh',
       subtitle: 'Chuť Európy v New Jersey',
-      description: 'Už viac ako 15 rokov prináša Gabriela\'s European Deli autentické európske chute do Toms River. To, čo začalo ako malý rodinný sen, sa rozrástlo na obľúbenú miestnu inštitúciu, ktorá obsluhuje generácie rodín receptami odovzdávanými z pokolenia na pokolenie.',
+      description: 'Už viac ako 6 rokov prináša Gabriela\'s European Deli autentické európske chute do Toms River. To, čo začalo ako malý rodinný sen, sa rozrástlo na obľúbenú miestnu inštitúciu, ktorá obsluhuje generácie rodín receptami odovzdávanými z pokolenia na pokolenie.',
       description2: 'Od našich ručne skladaných pierogi po náš starostlivo vyberaný výber importovaných syrov a údenín—každá položka v našom deli rozpráva príbeh tradície, kvality a lásky k európskemu kulinárskemu dedičstvu.',
       location: 'Nachádzame sa na 1825 Hooper Avenue',
-      slides: ['Naša Okúzľujúca Predajňa', 'Vo vnútri Nášho Deli', ' Vonkajšie Sedenie']
+      slides: ['Európske Deli', 'Náš Pult Deli', 'Domáce Pouličné Jedlo', 'Denné Špeciality', 'Naše Dedičstvo']
     },
     featured: {
       title: 'Naše Špeciality',
@@ -251,8 +251,8 @@ const translations = {
       info: {
         address: '1825 Hooper Avenue, Toms River, NJ 08753',
         phone: '732-279-3999',
-        email: 'hello@gabrielasdeli.com',
-        hours: 'Otváracie hodiny: Ut–So 9:00–18:00 | Ne 10:00–16:00'
+        email: 'gabrielasdeli@yahoo.com',
+        hours: 'Otváracie hodiny: Ut–So 9:30–17:00 | Ne 10:00–15:00'
       }
     },
     footer: {
@@ -272,10 +272,10 @@ const translations = {
     about: {
       title: 'Nasza Historia',
       subtitle: 'Smak Europy w New Jersey',
-      description: 'Od ponad 15 lat Gabriela\'s European Deli przywozi autentyczne europejskie smaki do Toms River. To, co zaczęło się jako mały rodzinny sen, rozrosło się w ukochaną lokalną instytucję, obsługującą pokolenia rodzin przepisami przekazywanymi z pokolenia na pokolenie.',
+      description: 'Od ponad 6 lat Gabriela\'s European Deli przywozi autentyczne europejskie smaki do Toms River. To, co zaczęło się jako mały rodzinny sen, rozrosło się w ukochaną lokalną instytucję, obsługującą pokolenia rodzin przepisami przekazywanymi z pokolenia na pokolenie.',
       description2: 'Od naszych ręcznie lepionych pierogi po nasz starannie dobrany wybór importowanych serów i wędlin—każdy produkt w naszym deli opowiada historię tradycji, jakości i miłości do europejskiego dziedzictwa kulinarnego.',
       location: 'Znajdujemy się przy 1825 Hooper Avenue',
-      slides: ['Nasz Urokliwy Sklep', 'Wewnątrz Naszego Deli', 'Siedzenie na Zewnątrz']
+      slides: ['Europejskie Deli', 'Nasz Sklep Deli', 'Domowe Jedzenie Uliczne', 'Codzienne Specjały', 'Nasze Dziedzictwo']
     },
     featured: {
       title: 'Nasze Specjały',
@@ -374,8 +374,8 @@ const translations = {
       info: {
         address: '1825 Hooper Avenue, Toms River, NJ 08753',
         phone: '732-279-3999',
-        email: 'hello@gabrielasdeli.com',
-        hours: 'Godziny: Wt–So 9:00–18:00 | Nd 10:00–16:00'
+        email: 'gabrielasdeli@yahoo.com',
+        hours: 'Godziny: Wt–So 9:30–17:00 | Nd 10:00–15:00'
       }
     },
     footer: {
@@ -395,10 +395,10 @@ const translations = {
     about: {
       title: 'Történetünk',
       subtitle: 'Európa Íze New Jersey-ben',
-      description: 'Több mint 15 éve a Gabriela\'s European Deli autentikus európai ízeket hoz Toms Riverbe. Amit kis családi álomként kezdődött, az egy kedvelt helyi intézménnyé nőtt, amely generációk óta szolgálja ki a családokat nemzedékről nemzedékre átadott receptekkel.',
+      description: 'Több mint 6 éve a Gabriela\'s European Deli autentikus európai ízeket hoz Toms Riverbe. Amit kis családi álomként kezdődött, az egy kedvelt helyi intézménnyé nőtt, amely generációk óta szolgálja ki a családokat nemzedékről nemzedékre átadott receptekkel.',
       description2: 'A kézzel hajtogatott pierogi-tól kezdve a gondosan összeválogatott importált sajtok és felvágottak választékáig—minden termékünk egy történetet mesél el a hagyományról, a minőségről és az európai kulináris örökség szeretetéről.',
       location: 'Címünk: 1825 Hooper Avenue',
-      slides: ['Bájos Üzletünk', 'Deli-nk Belseje', 'Kültéri Ülőhely']
+      slides: ['Európai Deli', 'Deli-nk Pultja', 'Házi Utcai Étel', 'Napi Specialitások', 'Örökségünk']
     },
     featured: {
       title: 'Különlegességeink',
@@ -497,8 +497,8 @@ const translations = {
       info: {
         address: '1825 Hooper Avenue, Toms River, NJ 08753',
         phone: '732-279-3999',
-        email: 'hello@gabrielasdeli.com',
-        hours: 'Nyitvatartás: K–Szo 9:00–18:00 | V 10:00–16:00'
+        email: 'gabrielasdeli@yahoo.com',
+        hours: 'Nyitvatartás: K–Szo 9:30–17:00 | V 10:00–15:00'
       }
     },
     footer: {
@@ -518,10 +518,10 @@ const translations = {
     about: {
       title: 'Unsere Geschichte',
       subtitle: 'Ein Geschmack von Europa in New Jersey',
-      description: 'Seit über 15 Jahren bringt Gabriela\'s European Deli authentische europäische Aromen nach Toms River. Was als kleiner Familientraum begann, ist zu einer beliebten lokalen Institution geworden, die Generationen von Familien mit Rezepten bedient, die von Generation zu Generation weitergegeben werden.',
+      description: 'Seit über 6 Jahren bringt Gabriela\'s European Deli authentische europäische Aromen nach Toms River. Was als kleiner Familientraum begann, ist zu einer beliebten lokalen Institution geworden, die Generationen von Familien mit Rezepten bedient, die von Generation zu Generation weitergegeben werden.',
       description2: 'Von unseren handgefalteten Pierogi bis hin zu unserer sorgfältig kuratierten Auswahl an importierten Käsesorten und Wurstwaren—jedes Produkt in unserem Deli erzählt eine Geschichte von Tradition, Qualität und Liebe zum europäischen kulinarischen Erbe.',
       location: 'Wir befinden uns an der 1825 Hooper Avenue',
-      slides: ['Unser Charmantes Geschäft', 'Innen in Unserem Deli', 'Sitzplätze im Freien']
+      slides: ['Europäisches Deli', 'Unsere Deli-Theke', 'Hausgemachtes Straßenessen', 'Tagesangebote', 'Unser Erbe']
     },
     featured: {
       title: 'Unsere Spezialitäten',
@@ -620,8 +620,8 @@ const translations = {
       info: {
         address: '1825 Hooper Avenue, Toms River, NJ 08753',
         phone: '732-279-3999',
-        email: 'hello@gabrielasdeli.com',
-        hours: 'Öffnungszeiten: Di–Sa 9:00–18:00 | So 10:00–16:00'
+        email: 'gabrielasdeli@yahoo.com',
+        hours: 'Öffnungszeiten: Di–Sa 9:30–17:00 | So 10:00–15:00'
       }
     },
     footer: {
@@ -638,25 +638,56 @@ function App() {
   const [navScrolled, setNavScrolled] = useState(false);
   const [showLangDropdown, setShowLangDropdown] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+  const [galleryIndex, setGalleryIndex] = useState(0);
+  const [galleryCategory, setGalleryCategory] = useState('all');
+
   const t = translations[lang];
   
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const pierogiRef = useRef<HTMLDivElement>(null);
   const saladsRef = useRef<HTMLDivElement>(null);
-  const cateringHeaderRef = useRef<HTMLDivElement>(null);
-  const crepesRef = useRef<HTMLDivElement>(null);
-  const hotdishesRef = useRef<HTMLDivElement>(null);
   const reviewsRef = useRef<HTMLDivElement>(null);
   const closingRef = useRef<HTMLDivElement>(null);
-  const menuRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const galleryTouchStartX = useRef<number>(0);
 
   const storefrontImages = [
-    { src: '/storefront-1.jpg', caption: t.about.slides[0] },
-    { src: '/storefront-2.jpg', caption: t.about.slides[1] },
-    { src: '/storefront-3.jpg', caption: t.about.slides[2] }
+    { src: '/gallery/european-deli-sign.jpg', caption: t.about.slides[0] },
+    { src: '/gallery/deli-counter.jpg',       caption: t.about.slides[1] },
+    { src: '/gallery/homemade-sign.jpg',      caption: t.about.slides[2] },
+    { src: '/gallery/daily-specials.jpg',     caption: t.about.slides[3] },
+    { src: '/gallery/slovak-heritage.jpg',    caption: t.about.slides[4] },
+  ];
+
+  const galleryPhotos = [
+    { src: '/gallery/homemade-sign.jpg',          category: 'store',      caption: 'Homemade Polish Street Food' },
+    { src: '/gallery/deli-counter.jpg',            category: 'store',      caption: 'Our Deli Counter' },
+    { src: '/gallery/daily-specials.jpg',          category: 'store',      caption: 'Daily Specials Display' },
+    { src: '/gallery/slovak-heritage.jpg',         category: 'store',      caption: 'Slovak Heritage' },
+    { src: '/gallery/european-deli-sign.jpg',      category: 'store',      caption: 'European Deli' },
+    { src: '/gallery/pierogi-fresh.png',           category: 'pierogi',    caption: 'Fresh Handmade Pierogi' },
+    { src: '/gallery/pierogi-selection.jpg',       category: 'pierogi',    caption: 'Pierogi Selection' },
+    { src: '/gallery/pierogi-handfolded.jpg',      category: 'pierogi',    caption: 'Hand-Folded Pierogi' },
+    { src: '/gallery/pierogi-ready.jpg',           category: 'pierogi',    caption: 'Pierogi Ready to Serve' },
+    { src: '/gallery/hot-dishes-counter.jpg',      category: 'hot',        caption: 'Hot Dishes Counter' },
+    { src: '/gallery/hot-daily-specials.jpg',      category: 'hot',        caption: 'Daily Specials' },
+    { src: '/gallery/hot-colorful.jpg',            category: 'hot',        caption: 'Colorful Hot Dishes' },
+    { src: '/gallery/hot-baked-rolls.jpg',         category: 'hot',        caption: 'Baked Goods & Rolls' },
+    { src: '/gallery/meats-charcuterie.jpg',       category: 'meats',      caption: 'European Charcuterie' },
+    { src: '/gallery/meats-sausages.jpg',          category: 'meats',      caption: 'Handcrafted Sausages' },
+    { src: '/gallery/meats-cured.jpg',             category: 'meats',      caption: 'Premium Cured Meats' },
+    { src: '/gallery/sandwiches-openface.jpg',     category: 'sandwiches', caption: 'Open Face Sandwiches' },
+    { src: '/gallery/sandwiches-breads.jpg',       category: 'sandwiches', caption: 'Artisan Breads & Rolls' },
+    { src: '/gallery/sandwiches-zapiekanka.jpg',   category: 'sandwiches', caption: 'Zapiekanka Open Face' },
+    { src: '/gallery/sandwiches-classic.jpg',      category: 'sandwiches', caption: 'Classic Deli Sandwich' },
+    { src: '/gallery/sandwiches-combo.jpg',        category: 'sandwiches', caption: 'Combo Sandwich' },
+    { src: '/gallery/desserts-pastries.jpg',       category: 'desserts',   caption: 'Assorted Pastries' },
+    { src: '/gallery/desserts-fruit-tart.jpg',     category: 'desserts',   caption: 'Fresh Fruit Tart' },
+    { src: '/gallery/desserts-chocolate-cake.jpg', category: 'desserts',   caption: 'Layered Chocolate Cake' },
+    { src: '/gallery/desserts-red-berry.jpg',      category: 'desserts',   caption: 'Red Berry Dessert' },
+    { src: '/gallery/desserts-donuts.jpg',         category: 'desserts',   caption: 'Homemade Donuts' },
   ];
 
   const [isMobile, setIsMobile] = useState(false);
@@ -748,8 +779,6 @@ function App() {
       const featureSections = [
         { ref: pierogiRef, class: 'pierogi' },
         { ref: saladsRef, class: 'salads' },
-        { ref: crepesRef, class: 'crepes' },
-        { ref: hotdishesRef, class: 'hotdishes' }
       ];
 
       const mobile = window.innerWidth < 1024;
@@ -785,34 +814,6 @@ function App() {
         }
       });
 
-      // Catering header
-      if (mobile) {
-        gsap.fromTo('.catering-header-content',
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1, y: 0, duration: 0.6, ease: 'power2.out',
-            scrollTrigger: {
-              trigger: cateringHeaderRef.current,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        );
-      } else {
-        const cateringTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: cateringHeaderRef.current,
-            start: 'top top',
-            end: '+=80%',
-            pin: true,
-            pinSpacing: true,
-            anticipatePin: 1,
-            scrub: 0.4,
-          }
-        });
-        cateringTl.fromTo('.catering-header-content', { y: '20vh', opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' });
-      }
-
       // Reviews section
       gsap.fromTo('.review-card',
         { opacity: 0, y: 40 },
@@ -825,6 +826,41 @@ function App() {
           scrollTrigger: {
             trigger: reviewsRef.current,
             start: 'top 70%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+
+      // Gallery section
+      gsap.fromTo('.gallery-header',
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+          scrollTrigger: {
+            trigger: galleryRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+      gsap.fromTo('.gallery-main',
+        { opacity: 0, scale: 0.97 },
+        {
+          opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out',
+          scrollTrigger: {
+            trigger: galleryRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+      gsap.fromTo('.gallery-thumbnails-wrapper',
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1, y: 0, duration: 0.6, delay: 0.2, ease: 'power2.out',
+          scrollTrigger: {
+            trigger: galleryRef.current,
+            start: 'top 75%',
             toggleActions: 'play none none reverse'
           }
         }
@@ -857,24 +893,6 @@ function App() {
         });
         closingTl.fromTo('.closing-content', { y: '25vh', opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' });
       }
-
-      // Flowing sections animations
-      gsap.utils.toArray<HTMLElement>('.menu-category').forEach((category) => {
-        gsap.fromTo(category,
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.6,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: category,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        );
-      });
 
       // Refresh after all triggers are set up
       ScrollTrigger.refresh();
@@ -909,6 +927,10 @@ function App() {
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + storefrontImages.length) % storefrontImages.length);
   };
+
+  const filteredPhotos = galleryCategory === 'all'
+    ? galleryPhotos
+    : galleryPhotos.filter(p => p.category === galleryCategory);
 
   return (
     <div className="relative">
@@ -1029,14 +1051,14 @@ function App() {
             <button onClick={() => scrollToSection(aboutRef)} className="text-2xl text-cream hover:text-gold transition-colors font-playfair">
               {t.nav.about}
             </button>
-            <button onClick={() => scrollToSection(pierogiRef)} className="text-2xl text-cream hover:text-gold transition-colors font-playfair">
-              {t.nav.menu}
-            </button>
             <button onClick={() => scrollToSection(reviewsRef)} className="text-2xl text-cream hover:text-gold transition-colors font-playfair">
               {t.nav.reviews}
             </button>
+            <button onClick={() => scrollToSection(galleryRef)} className="text-2xl text-cream hover:text-gold transition-colors font-playfair">
+              Gallery
+            </button>
             <button onClick={() => scrollToSection(contactRef)} className="text-2xl text-cream hover:text-gold transition-colors font-playfair">
-              {t.nav.catering}
+              Contact
             </button>
           </nav>
           
@@ -1196,7 +1218,7 @@ function App() {
             items={t.featured.items.map((item: { num: string; name: string }, i: number) => ({
               ...item,
               clipId: ['clip-original', 'clip-hexagons', 'clip-pixels'][i],
-              image: ['/specialty-pierogi.jpg', '/specialty-cheeses.jpg', '/specialty-sausages.jpg'][i]
+              image: ['/gallery/pierogi-handfolded.jpg', '/gallery/meats-charcuterie.jpg', '/gallery/meats-sausages.jpg'][i]
             }))}
           />
         </div>
@@ -1216,10 +1238,6 @@ function App() {
             <p className="feature-text text-base sm:text-lg mb-6">
               {t.features.pierogi.description}
             </p>
-            <button onClick={() => scrollToSection(menuRef)} className="text-gold hover:text-gold-light flex items-center gap-2 transition-colors">
-              {t.features.pierogi.cta}
-              <ChevronRight size={18} />
-            </button>
           </div>
 
           <div className="hidden lg:block w-px h-[40vh] bg-gold/40 mx-12" />
@@ -1227,7 +1245,7 @@ function App() {
           <div className="pierogi-image w-full lg:w-[50%] max-w-[700px]">
             <div className="image-card aspect-[4/3] lg:animate-float">
               <img
-                src="/specialty-pierogi.jpg"
+                src="/gallery/pierogi-handfolded.jpg"
                 alt="Hand-folded pierogi served on a plate"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -1251,10 +1269,6 @@ function App() {
             <p className="feature-text text-base sm:text-lg mb-6">
               {t.features.salads.description}
             </p>
-            <button onClick={() => scrollToSection(menuRef)} className="text-gold hover:text-gold-light flex items-center gap-2 transition-colors">
-              {t.features.salads.cta}
-              <ChevronRight size={18} />
-            </button>
           </div>
 
           <div className="hidden lg:block w-px h-[40vh] bg-gold/40 mx-12" />
@@ -1262,121 +1276,8 @@ function App() {
           <div className="salads-image w-full lg:w-[50%] max-w-[700px]">
             <div className="image-card aspect-[4/3] lg:animate-float">
               <img
-                src="/specialty-cheeses.jpg"
-                alt="Selection of imported European cheeses and salads"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 5: Catering Header */}
-      <section ref={cateringHeaderRef} className={`${isMobile ? 'py-20 sm:py-28' : 'section-pinned'} relative z-50`}>
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <img src="/catering-event.jpg" alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-navy/75" />
-        </div>
-
-        <div className={`catering-header-content relative ${isMobile ? '' : 'h-full'} flex flex-col justify-center items-center px-4`}>
-          <div className="text-center max-w-3xl mx-auto">
-            <span className="text-gold text-sm font-inter font-semibold tracking-widest uppercase mb-6 block">
-              <Users size={16} className="inline mr-2 -mt-0.5" />
-              Parties & Events
-            </span>
-            <h2 className="font-playfair text-cream text-[clamp(36px,6vw,72px)] font-bold mb-6">
-              {t.catering.title}
-            </h2>
-            <p className="text-cream/70 text-lg sm:text-xl mb-10 max-w-xl mx-auto">
-              {t.catering.subtitle}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="/catering-menu.jpg"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-gold inline-flex items-center gap-2"
-                aria-label="View catering menu"
-              >
-                <Eye size={18} />
-                {t.catering.cta}
-              </a>
-              <a
-                href="tel:732-279-3999"
-                className="btn-gold-solid inline-flex items-center gap-2"
-              >
-                <Phone size={18} />
-                {t.catering.orders.cta}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 6: Crepes Feature */}
-      <section ref={crepesRef} className={`${isMobile ? 'py-16 sm:py-20' : 'section-pinned'} bg-navy relative z-[60]`}>
-        <div className="absolute inset-0 wood-texture opacity-15 mix-blend-multiply" />
-        <div className="absolute inset-0 paper-grain" />
-
-        <div className={`relative ${isMobile ? '' : 'h-full'} flex flex-col lg:flex-row items-center px-[6vw] sm:px-[8vw] gap-8 lg:gap-0`}>
-          <div className="crepes-text w-full lg:w-[40%] pr-0 lg:pr-8">
-            <span className="eyebrow mb-4 block">{t.features.crepes.eyebrow}</span>
-            <h2 className="font-playfair text-cream text-[clamp(36px,5vw,64px)] font-bold mb-6">
-              {t.features.crepes.title}
-            </h2>
-            <p className="feature-text text-base sm:text-lg mb-6">
-              {t.features.crepes.description}
-            </p>
-            <button onClick={() => scrollToSection(menuRef)} className="text-gold hover:text-gold-light flex items-center gap-2 transition-colors">
-              {t.features.crepes.cta}
-              <ChevronRight size={18} />
-            </button>
-          </div>
-
-          <div className="hidden lg:block w-px h-[40vh] bg-gold/40 mx-12" />
-
-          <div className="crepes-image w-full lg:w-[50%] max-w-[700px]">
-            <div className="image-card aspect-[4/3] lg:animate-float">
-              <img
-                src="/specialty-baked.jpg"
-                alt="Fresh baked crepes and European pastries"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 7: Hot Dishes Feature */}
-      <section ref={hotdishesRef} className={`${isMobile ? 'py-16 sm:py-20' : 'section-pinned'} bg-navy relative z-[70]`}>
-        <div className="absolute inset-0 wood-texture opacity-15 mix-blend-multiply" />
-        <div className="absolute inset-0 paper-grain" />
-
-        <div className={`relative ${isMobile ? '' : 'h-full'} flex flex-col lg:flex-row items-center px-[6vw] sm:px-[8vw] gap-8 lg:gap-0`}>
-          <div className="hotdishes-text w-full lg:w-[40%] pr-0 lg:pr-8">
-            <span className="eyebrow mb-4 block">{t.features.hotdishes.eyebrow}</span>
-            <h2 className="font-playfair text-cream text-[clamp(36px,5vw,64px)] font-bold mb-6">
-              {t.features.hotdishes.title}
-            </h2>
-            <p className="feature-text text-base sm:text-lg mb-6">
-              {t.features.hotdishes.description}
-            </p>
-            <button onClick={() => scrollToSection(menuRef)} className="text-gold hover:text-gold-light flex items-center gap-2 transition-colors">
-              {t.features.hotdishes.cta}
-              <ChevronRight size={18} />
-            </button>
-          </div>
-
-          <div className="hidden lg:block w-px h-[40vh] bg-gold/40 mx-12" />
-
-          <div className="hotdishes-image w-full lg:w-[50%] max-w-[700px]">
-            <div className="image-card aspect-[4/3] lg:animate-float">
-              <img
-                src="/specialty-sausages.jpg"
-                alt="European sausages and hot dishes selection"
+                src="/gallery/meats-charcuterie.jpg"
+                alt="Selection of imported European cheeses and charcuterie"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -1438,6 +1339,149 @@ function App() {
         </div>
       </section>
 
+      {/* Section 8.5: Photo Gallery */}
+      <section ref={galleryRef} className="relative z-[85] bg-navy py-16 sm:py-24 overflow-hidden">
+        <div className="absolute inset-0 wood-texture opacity-10 mix-blend-multiply" />
+        <div className="absolute inset-0 paper-grain" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-8 gallery-header">
+            <span className="eyebrow mb-4 block">Photo Gallery</span>
+            <h2 className="font-playfair text-cream text-[clamp(32px,5vw,56px)] font-bold mb-4">
+              From Our Kitchen
+            </h2>
+            <div className="w-24 h-1 bg-gold mx-auto" />
+          </div>
+
+          {/* Category Tabs */}
+          <div className="gallery-header flex flex-wrap justify-center gap-2 mb-8">
+            {[
+              { key: 'all', label: 'All Photos' },
+              { key: 'pierogi', label: 'Pierogi' },
+              { key: 'store', label: 'Deli Counter' },
+              { key: 'meats', label: 'Meats & Cheeses' },
+              { key: 'sandwiches', label: 'Sandwiches' },
+              { key: 'desserts', label: 'Desserts' },
+              { key: 'hot', label: 'Hot Dishes' },
+            ].map((cat) => (
+              <button
+                key={cat.key}
+                onClick={() => { setGalleryCategory(cat.key); setGalleryIndex(0); }}
+                className={`gallery-cat-btn px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-300 ${
+                  galleryCategory === cat.key
+                    ? 'bg-gold text-navy border-gold shadow-lg shadow-gold/20'
+                    : 'bg-transparent text-cream/70 border-gold/30 hover:border-gold/60 hover:text-cream'
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Main Image Viewer */}
+          <div
+            className="gallery-main relative rounded-2xl overflow-hidden shadow-2xl border border-gold/20 mb-4 cursor-grab active:cursor-grabbing"
+            style={{ aspectRatio: '16/9', maxHeight: '65vh' }}
+            onTouchStart={(e) => { galleryTouchStartX.current = e.touches[0].clientX; }}
+            onTouchEnd={(e) => {
+              const diff = galleryTouchStartX.current - e.changedTouches[0].clientX;
+              if (Math.abs(diff) > 40) {
+                if (diff > 0) setGalleryIndex(i => (i + 1) % filteredPhotos.length);
+                else setGalleryIndex(i => (i - 1 + filteredPhotos.length) % filteredPhotos.length);
+              }
+            }}
+          >
+            {filteredPhotos.map((photo, i) => (
+              <div
+                key={photo.src}
+                className={`absolute inset-0 transition-all duration-600 ${
+                  i === galleryIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                }`}
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.caption}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5 right-20">
+                  <p className="text-cream text-base sm:text-lg font-playfair drop-shadow-lg">{photo.caption}</p>
+                  <p className="text-gold/80 text-xs sm:text-sm mt-1">{galleryIndex + 1} / {filteredPhotos.length}</p>
+                </div>
+              </div>
+            ))}
+
+            {/* Progress bar */}
+            <div className="absolute top-0 left-0 right-0 h-0.5 bg-white/10 z-20">
+              <div
+                className="h-full bg-gold transition-all duration-300"
+                style={{ width: `${((galleryIndex + 1) / filteredPhotos.length) * 100}%` }}
+              />
+            </div>
+
+            {/* Prev button */}
+            <button
+              onClick={() => setGalleryIndex(i => (i - 1 + filteredPhotos.length) % filteredPhotos.length)}
+              className="gallery-nav-btn absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-navy/60 backdrop-blur-sm border border-gold/30 flex items-center justify-center text-cream hover:bg-gold hover:text-navy transition-all z-20"
+              aria-label="Previous photo"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            {/* Next button */}
+            <button
+              onClick={() => setGalleryIndex(i => (i + 1) % filteredPhotos.length)}
+              className="gallery-nav-btn absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-navy/60 backdrop-blur-sm border border-gold/30 flex items-center justify-center text-cream hover:bg-gold hover:text-navy transition-all z-20"
+              aria-label="Next photo"
+            >
+              <ChevronRight size={20} />
+            </button>
+
+            {/* Dot indicators (mobile-friendly) */}
+            <div className="absolute bottom-5 right-5 flex gap-1.5 z-20">
+              {filteredPhotos.length <= 10 && filteredPhotos.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setGalleryIndex(i)}
+                  className={`rounded-full transition-all duration-300 ${
+                    i === galleryIndex ? 'bg-gold w-5 h-1.5' : 'bg-white/40 w-1.5 h-1.5 hover:bg-white/70'
+                  }`}
+                  aria-label={`Go to photo ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Thumbnail Strip */}
+          <div className="gallery-thumbnails-wrapper overflow-x-auto pb-3 -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div className="flex gap-2 sm:gap-3" style={{ width: 'max-content' }}>
+              {filteredPhotos.map((photo, i) => (
+                <button
+                  key={photo.src}
+                  onClick={() => setGalleryIndex(i)}
+                  className={`gallery-thumb flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                    i === galleryIndex
+                      ? 'border-gold shadow-lg shadow-gold/30 scale-105'
+                      : 'border-transparent opacity-50 hover:opacity-80 hover:border-gold/40'
+                  }`}
+                  style={{ width: '80px', height: '56px' }}
+                  aria-label={`View ${photo.caption}`}
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.caption}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Section 9: Closing Scene — enhanced CTA */}
       <section ref={closingRef} className={`${isMobile ? 'py-20 sm:py-28' : 'section-pinned'} relative z-[90]`}>
         {/* Background image */}
@@ -1484,268 +1528,69 @@ function App() {
         </div>
       </section>
 
-      {/* Section 10: Menu List */}
-      <section ref={menuRef} className="relative z-[100] bg-cream py-20 sm:py-32">
-        <div className="absolute inset-0 paper-grain" />
-        
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-playfair text-navy text-[clamp(32px,5vw,56px)] font-bold mb-4">
-              {t.menu.title}
-            </h2>
-            <div className="w-24 h-1 bg-gold mx-auto" />
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-            {/* Pierogi */}
-            <div className="menu-category">
-              <h3 className="font-playfair text-navy text-2xl font-bold mb-4 pb-2 border-b-2 border-navy/20">
-                {t.menu.categories.pierogi}
-              </h3>
-              <div className="space-y-3">
-                {[
-                  { name: 'Potato & Cheese', price: '$10/dozen' },
-                  { name: 'Sauerkraut & Mushroom', price: '$10/dozen' },
-                  { name: 'Meat', price: '$11/dozen' },
-                  { name: 'Sweet Cheese', price: '$11/dozen' },
-                  { name: 'Blueberry', price: '$11/dozen' },
-                ].map((item, i) => (
-                  <div key={i} className="flex justify-between items-center py-2 border-b border-navy/10">
-                    <span className="text-navy/80">{item.name}</span>
-                    <span className="font-semibold text-navy">{item.price}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Salads */}
-            <div className="menu-category">
-              <h3 className="font-playfair text-navy text-2xl font-bold mb-4 pb-2 border-b-2 border-navy/20">
-                {t.menu.categories.salads}
-              </h3>
-              <div className="space-y-3">
-                {[
-                  { name: 'Potato Salad (Small/Large)', price: '$40/$75' },
-                  { name: 'Coleslaw (Small/Large)', price: '$35/$65' },
-                  { name: 'Greek Salad (Small/Large)', price: '$35/$65' },
-                  { name: 'Beet Salad', price: '$40/lb' },
-                  { name: 'Herring in Cream', price: '$45/lb' },
-                ].map((item, i) => (
-                  <div key={i} className="flex justify-between items-center py-2 border-b border-navy/10">
-                    <span className="text-navy/80">{item.name}</span>
-                    <span className="font-semibold text-navy">{item.price}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Crepes */}
-            <div className="menu-category">
-              <h3 className="font-playfair text-navy text-2xl font-bold mb-4 pb-2 border-b-2 border-navy/20">
-                {t.menu.categories.crepes}
-              </h3>
-              <div className="space-y-3">
-                {[
-                  { name: 'Crepes with Apples', price: '$2.50/pc' },
-                  { name: 'Crepes with Cheese', price: '$2.50/pc' },
-                  { name: 'Crepes with Blueberries', price: '$2.50/pc' },
-                  { name: 'Crepes with Cherries', price: '$2.50/pc' },
-                  { name: 'Savory Ham & Cheese', price: '$3.50/pc' },
-                ].map((item, i) => (
-                  <div key={i} className="flex justify-between items-center py-2 border-b border-navy/10">
-                    <span className="text-navy/80">{item.name}</span>
-                    <span className="font-semibold text-navy">{item.price}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Hot Dishes */}
-            <div className="menu-category">
-              <h3 className="font-playfair text-navy text-2xl font-bold mb-4 pb-2 border-b-2 border-navy/20">
-                {t.menu.categories.hotdishes}
-              </h3>
-              <div className="space-y-3">
-                {[
-                  { name: 'Stuffed Cabbage (Small/Large)', price: '$45/$90' },
-                  { name: 'Meatballs in Dill Sauce', price: '$50/lb' },
-                  { name: 'Roast Pork Loin', price: '$55/lb' },
-                  { name: 'Chicken Cutlets', price: '$50/lb' },
-                  { name: 'Beef Stew', price: '$60/lb' },
-                ].map((item, i) => (
-                  <div key={i} className="flex justify-between items-center py-2 border-b border-navy/10">
-                    <span className="text-navy/80">{item.name}</span>
-                    <span className="font-semibold text-navy">{item.price}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          
-          {/* Full Menu — opens in new tab preview */}
-          <div className="mt-16 text-center">
-            <a
-              href="/catering-menu.jpg"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-navy text-cream font-semibold hover:bg-navy-light transition-colors rounded-lg"
-            >
-              <Eye size={20} />
-              {t.catering.cta}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 11: Contact + Form — cream background for contrast */}
-      <section ref={contactRef} className="relative z-[110] bg-cream py-20 sm:py-32 overflow-hidden">
+      {/* Section 10: Contact Info */}
+      <section ref={contactRef} className="relative z-[100] bg-cream py-20 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 paper-grain" />
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
-        {/* Decorative blurs */}
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-gold/5 rounded-full blur-[120px]" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-navy/5 rounded-full blur-[120px]" />
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section header */}
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="text-gold-dark text-sm font-inter font-semibold tracking-widest uppercase mb-4 block">Get In Touch</span>
             <h2 className="font-playfair text-navy text-[clamp(28px,4vw,48px)] font-bold mb-4">
-              {t.contact.title}
+              Find Us
             </h2>
             <p className="text-navy/50 text-lg max-w-lg mx-auto">
-              {t.contact.subtitle}
+              {t.contact.info.hours}
             </p>
             <div className="w-24 h-1 bg-gold mx-auto mt-6" />
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <div>
-              {/* Contact cards */}
-              <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                <a href={`tel:${t.contact.info.phone}`} className="group bg-white rounded-xl p-5 shadow-md border border-gold/10 hover:border-gold/30 hover:shadow-lg transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-3 group-hover:bg-gold/20 transition-colors">
-                    <Phone className="text-gold" size={22} />
-                  </div>
-                  <p className="text-navy/40 text-xs font-semibold uppercase tracking-wider mb-1">Phone</p>
-                  <p className="text-navy font-semibold group-hover:text-gold-dark transition-colors">{t.contact.info.phone}</p>
-                </a>
-                <a href={`mailto:${t.contact.info.email}`} className="group bg-white rounded-xl p-5 shadow-md border border-gold/10 hover:border-gold/30 hover:shadow-lg transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-3 group-hover:bg-gold/20 transition-colors">
-                    <Mail className="text-gold" size={22} />
-                  </div>
-                  <p className="text-navy/40 text-xs font-semibold uppercase tracking-wider mb-1">Email</p>
-                  <p className="text-navy font-semibold group-hover:text-gold-dark transition-colors text-sm">{t.contact.info.email}</p>
-                </a>
-                <div className="bg-white rounded-xl p-5 shadow-md border border-gold/10">
-                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-3">
-                    <MapPin className="text-gold" size={22} />
-                  </div>
-                  <p className="text-navy/40 text-xs font-semibold uppercase tracking-wider mb-1">Address</p>
-                  <p className="text-navy font-semibold text-sm">{t.contact.info.address}</p>
-                </div>
-                <div className="bg-white rounded-xl p-5 shadow-md border border-gold/10">
-                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-3">
-                    <Clock className="text-gold" size={22} />
-                  </div>
-                  <p className="text-navy/40 text-xs font-semibold uppercase tracking-wider mb-1">Hours</p>
-                  <p className="text-navy font-semibold text-sm">{t.contact.info.hours}</p>
-                </div>
+          {/* Contact cards — full width grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+            <a href={`tel:${t.contact.info.phone}`} className="group bg-white rounded-xl p-5 shadow-md border border-gold/10 hover:border-gold/30 hover:shadow-lg transition-all">
+              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-3 group-hover:bg-gold/20 transition-colors">
+                <Phone className="text-gold" size={22} />
               </div>
-
-              {/* Map */}
-              <div className="aspect-video bg-navy-light rounded-2xl overflow-hidden border border-gold/15 shadow-lg">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.3975784327!2d-74.2085!3d40.0184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDAxJzA2LjIiTiA3NMKwMTInMzAuNiJX!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, filter: 'grayscale(30%) brightness(0.9)' }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Gabriela's European Deli Location"
-                />
+              <p className="text-navy/40 text-xs font-semibold uppercase tracking-wider mb-1">Phone</p>
+              <p className="text-navy font-semibold group-hover:text-gold-dark transition-colors">{t.contact.info.phone}</p>
+            </a>
+            <a href={`mailto:${t.contact.info.email}`} className="group bg-white rounded-xl p-5 shadow-md border border-gold/10 hover:border-gold/30 hover:shadow-lg transition-all">
+              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-3 group-hover:bg-gold/20 transition-colors">
+                <Mail className="text-gold" size={22} />
               </div>
+              <p className="text-navy/40 text-xs font-semibold uppercase tracking-wider mb-1">Email</p>
+              <p className="text-navy font-semibold group-hover:text-gold-dark transition-colors text-sm">{t.contact.info.email}</p>
+            </a>
+            <div className="bg-white rounded-xl p-5 shadow-md border border-gold/10">
+              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-3">
+                <MapPin className="text-gold" size={22} />
+              </div>
+              <p className="text-navy/40 text-xs font-semibold uppercase tracking-wider mb-1">Address</p>
+              <p className="text-navy font-semibold text-sm">{t.contact.info.address}</p>
             </div>
-
-            {/* Enhanced Form */}
-            <div className="relative">
-              <div className="bg-navy rounded-2xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
-                {/* Gold accent bar */}
-                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-gold/60 via-gold to-gold/60" />
-                {/* Subtle texture overlay */}
-                <div className="absolute inset-0 wood-texture opacity-5 mix-blend-overlay pointer-events-none" />
-
-                <div className="relative">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-full bg-gold/15 flex items-center justify-center">
-                      <Mail className="text-gold" size={18} />
-                    </div>
-                    <h3 className="font-playfair text-cream text-2xl font-bold">
-                      {t.contact.title}
-                    </h3>
-                  </div>
-                  <p className="text-cream/40 text-sm mb-8 pl-[52px]">Fill out the form and we'll get back to you within 24 hours.</p>
-
-                  <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); alert('Thank you! We will contact you within 24 hours.'); }}>
-                    <div>
-                      <label className="block text-cream/60 text-xs mb-2 font-semibold uppercase tracking-wider">{t.contact.form.name}</label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-3.5 bg-navy-light/60 border border-gold/15 text-cream rounded-xl focus:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold/15 transition-all placeholder:text-cream/25"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-cream/60 text-xs mb-2 font-semibold uppercase tracking-wider">{t.contact.form.phone}</label>
-                        <input
-                          type="tel"
-                          className="w-full px-4 py-3.5 bg-navy-light/60 border border-gold/15 text-cream rounded-xl focus:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold/15 transition-all placeholder:text-cream/25"
-                          placeholder="(732) 000-0000"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-cream/60 text-xs mb-2 font-semibold uppercase tracking-wider">{t.contact.form.email}</label>
-                        <input
-                          type="email"
-                          className="w-full px-4 py-3.5 bg-navy-light/60 border border-gold/15 text-cream rounded-xl focus:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold/15 transition-all placeholder:text-cream/25"
-                          placeholder="your@email.com"
-                        />
-                      </div>
-                    </div>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-cream/60 text-xs mb-2 font-semibold uppercase tracking-wider">{t.contact.form.date}</label>
-                        <input
-                          type="date"
-                          className="w-full px-4 py-3.5 bg-navy-light/60 border border-gold/15 text-cream rounded-xl focus:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold/15 transition-all"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-cream/60 text-xs mb-2 font-semibold uppercase tracking-wider">{t.contact.form.guests}</label>
-                        <input
-                          type="number"
-                          className="w-full px-4 py-3.5 bg-navy-light/60 border border-gold/15 text-cream rounded-xl focus:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold/15 transition-all placeholder:text-cream/25"
-                          placeholder="e.g. 25"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-cream/60 text-xs mb-2 font-semibold uppercase tracking-wider">{t.contact.form.message}</label>
-                      <textarea
-                        rows={4}
-                        className="w-full px-4 py-3.5 bg-navy-light/60 border border-gold/15 text-cream rounded-xl focus:border-gold/50 focus:outline-none focus:ring-2 focus:ring-gold/15 transition-all resize-none placeholder:text-cream/25"
-                        placeholder="Tell us about your event, preferred dishes, dietary needs..."
-                      />
-                    </div>
-                    <button type="submit" className="w-full bg-gold text-navy py-4 rounded-xl font-bold text-base hover:bg-gold-light transition-all shadow-lg shadow-gold/20 hover:shadow-gold/30 hover:-translate-y-0.5 active:translate-y-0">
-                      {t.contact.form.submit}
-                    </button>
-                  </form>
-                </div>
+            <div className="bg-white rounded-xl p-5 shadow-md border border-gold/10">
+              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-3">
+                <Clock className="text-gold" size={22} />
               </div>
+              <p className="text-navy/40 text-xs font-semibold uppercase tracking-wider mb-1">Hours</p>
+              <p className="text-navy font-semibold text-sm">{t.contact.info.hours}</p>
             </div>
+          </div>
+
+          {/* Map — full width */}
+          <div className="aspect-video bg-navy-light rounded-2xl overflow-hidden border border-gold/15 shadow-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.3975784327!2d-74.2085!3d40.0184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDAxJzA2LjIiTiA3NMKwMTInMzAuNiJX!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: 'grayscale(30%) brightness(0.9)' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Gabriela's European Deli Location"
+            />
           </div>
         </div>
       </section>
@@ -1791,17 +1636,17 @@ function App() {
                   <ChevronRight size={14} className="text-gold/40" />
                   {t.nav.about}
                 </button>
-                <button onClick={() => scrollToSection(menuRef)} className="text-cream/50 hover:text-gold hover:translate-x-1 transition-all text-sm text-center md:text-left flex items-center gap-2">
-                  <ChevronRight size={14} className="text-gold/40" />
-                  {t.nav.menu}
-                </button>
                 <button onClick={() => scrollToSection(reviewsRef)} className="text-cream/50 hover:text-gold hover:translate-x-1 transition-all text-sm text-center md:text-left flex items-center gap-2">
                   <ChevronRight size={14} className="text-gold/40" />
                   {t.nav.reviews}
                 </button>
+                <button onClick={() => scrollToSection(galleryRef)} className="text-cream/50 hover:text-gold hover:translate-x-1 transition-all text-sm text-center md:text-left flex items-center gap-2">
+                  <ChevronRight size={14} className="text-gold/40" />
+                  Gallery
+                </button>
                 <button onClick={() => scrollToSection(contactRef)} className="text-cream/50 hover:text-gold hover:translate-x-1 transition-all text-sm text-center md:text-left flex items-center gap-2">
                   <ChevronRight size={14} className="text-gold/40" />
-                  {t.nav.catering}
+                  Contact
                 </button>
               </nav>
             </div>
